@@ -1,0 +1,120 @@
+//
+//  MainListVC.swift
+//  prox_iMuzic
+//
+//  Created by Nguyen Trung Hieu on 4/8/20.
+//  Copyright © 2020 Nguyen Trung Hieu. All rights reserved.
+//
+
+import UIKit
+import PinterestLayout
+
+class MainListVC: UIViewController {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    var cateType : CateType?
+    var listPlayList : [PlayListModels] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configColl()
+        getListPlaylist()
+        print(cateType?.id)
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
+    func getListPlaylist() {
+        ImuzicAPIManager.sharedInstance.getListPlaylist(cateID: self.cateType?.id! ?? "1", limit: "20", success: { [weak self](listPlayList) in
+            guard let sSelf = self else {return}
+            sSelf.listPlayList = listPlayList
+            sSelf.collectionView.reloadData()
+        }) { (error) in
+            print(error)
+            guard let topVC = UIApplication.topViewController() else {
+                return
+            }
+            topVC.showToastAtBottom(message: error)
+        }
+    }
+    
+    func configColl() {
+        
+        let layout = PinterestLayout()
+        collectionView.collectionViewLayout = layout
+        
+        layout.delegate = self
+        layout.cellPadding = 5
+        layout.numberOfColumns = 2
+        
+//       self.collectionView.emptyDataSetSource = self
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        collectionView.isScrollEnabled = false
+        self.collectionView.registerCell(ListCollCell.className)
+    }
+    
+}
+
+
+extension MainListVC: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.listPlayList.count != 0{
+            return 5
+        }
+        return self.listPlayList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollCell.className, for: indexPath) as! ListCollCell
+        cell.configCell(item: self.listPlayList[indexPath.row])
+        return cell
+    }
+    
+    
+}
+extension MainListVC: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let topVC = UIApplication.topViewController() else {
+            return
+        }
+        let vc = PlayListDetailVC.loadFromNib()
+        vc.playList = self.listPlayList[indexPath.row]
+        topVC.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension MainListVC: PinterestLayoutDelegate {
+    func collectionView(collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 131
+        case 1:
+            return 175
+        case 2:
+            return 131
+        case 3:
+            return 240
+        case 4:
+            return 131
+            
+        default:
+            return withWidth
+        }
+        
+        
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat {
+        let textFont = UIFont(name: "Arial-ItalicMT", size: 11)!
+        return "Some text".heightForWidth(width: withWidth, font: textFont)
+    }
+    
+    
+}
+

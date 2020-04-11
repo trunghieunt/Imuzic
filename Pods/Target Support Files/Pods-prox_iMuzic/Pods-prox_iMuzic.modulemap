@@ -1,0 +1,6 @@
+framework module Pods_prox_iMuzic {
+  umbrella header "Pods-prox_iMuzic-umbrella.h"
+
+  export *
+  module * { export * }
+}

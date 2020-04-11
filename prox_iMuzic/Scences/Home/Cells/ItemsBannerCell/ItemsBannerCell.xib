@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ItemsBannerCell" customModule="prox_iMuzic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="299" height="165"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="299" height="165"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bannerdefault" translatesAutoresizingMaskIntoConstraints="NO" id="coM-BZ-GSk">
+                        <rect key="frame" x="0.0" y="0.0" width="299" height="165"/>
+                    </imageView>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcf-2F-0mA">
+                        <rect key="frame" x="0.0" y="0.0" width="299" height="165"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.24063570205479451" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWd-9q-Awn">
+                        <rect key="frame" x="52.5" y="58" width="194.5" height="49.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Trending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCd-B0-uSq">
+                                <rect key="frame" x="16" y="10" width="162.5" height="29.5"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QCd-B0-uSq" firstAttribute="centerX" secondItem="yWd-9q-Awn" secondAttribute="centerX" id="fFy-sZ-0vQ"/>
+                            <constraint firstAttribute="trailing" secondItem="QCd-B0-uSq" secondAttribute="trailing" constant="16" id="pRS-Rx-xSt"/>
+                            <constraint firstItem="QCd-B0-uSq" firstAttribute="top" secondItem="yWd-9q-Awn" secondAttribute="top" constant="10" id="wEr-iE-bfR"/>
+                            <constraint firstItem="QCd-B0-uSq" firstAttribute="centerY" secondItem="yWd-9q-Awn" secondAttribute="centerY" id="xtS-sE-fc0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Wcf-2F-0mA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1m5-9B-VhK"/>
+                <constraint firstItem="yWd-9q-Awn" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="B9W-mE-GxB"/>
+                <constraint firstAttribute="trailing" secondItem="coM-BZ-GSk" secondAttribute="trailing" id="CHy-9D-yhG"/>
+                <constraint firstItem="coM-BZ-GSk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Gzs-gH-GU9"/>
+                <constraint firstAttribute="trailing" secondItem="Wcf-2F-0mA" secondAttribute="trailing" id="MSq-sm-xFi"/>
+                <constraint firstAttribute="bottom" secondItem="Wcf-2F-0mA" secondAttribute="bottom" id="OFJ-OX-hmU"/>
+                <constraint firstItem="coM-BZ-GSk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Oia-Iu-pSL"/>
+                <constraint firstAttribute="bottom" secondItem="coM-BZ-GSk" secondAttribute="bottom" id="Uib-WQ-rfI"/>
+                <constraint firstItem="yWd-9q-Awn" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="iHj-D9-19d"/>
+                <constraint firstItem="Wcf-2F-0mA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ydY-Cf-8m7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="299" height="165"/>
+            <connections>
+                <outlet property="img" destination="coM-BZ-GSk" id="sCU-lG-V2X"/>
+                <outlet property="musicTitle" destination="QCd-B0-uSq" id="Rxa-kt-jNl"/>
+                <outlet property="viewTitle" destination="yWd-9q-Awn" id="dWf-Tp-FUT"/>
+            </connections>
+            <point key="canvasLocation" x="313.768115942029" y="180.46875"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bannerdefault" width="1280" height="720"/>
+    </resources>
+</document>

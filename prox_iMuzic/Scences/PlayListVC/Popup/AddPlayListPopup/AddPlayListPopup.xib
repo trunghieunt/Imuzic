@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddPlayListPopup" customModule="prox_iMuzic" customModuleProvider="target">
+            <connections>
+                <outlet property="outletOK" destination="XX6-GX-eYm" id="S7M-NP-Add"/>
+                <outlet property="textField" destination="CCk-nh-qbj" id="IVl-0J-eKN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new playlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEN-nc-rOM">
+                    <rect key="frame" x="104.5" y="25" width="166.5" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="nNr-1x-weP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My playlist . . ." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCk-nh-qbj">
+                    <rect key="frame" x="18" y="74" width="339" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="2wb-ya-3b7"/>
+                        <constraint firstAttribute="width" constant="339" id="f93-qa-QHY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XX6-GX-eYm">
+                    <rect key="frame" x="253" y="148" width="104" height="36"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.25098039220000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="104" id="Yyl-ot-tVT"/>
+                        <constraint firstAttribute="height" constant="36" id="kp2-6J-2wn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                    <state key="normal" title="OK">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="actionOK:" destination="-1" eventType="touchUpInside" id="QT3-z5-v91"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="CCk-nh-qbj" firstAttribute="top" secondItem="sEN-nc-rOM" secondAttribute="bottom" constant="25" id="EJ0-po-hFd"/>
+                <constraint firstItem="XX6-GX-eYm" firstAttribute="top" secondItem="CCk-nh-qbj" secondAttribute="bottom" constant="25" id="Ps5-mi-WO9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XX6-GX-eYm" secondAttribute="bottom" constant="20" id="WD4-te-bx8"/>
+                <constraint firstItem="sEN-nc-rOM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="X5V-2A-4iM"/>
+                <constraint firstItem="CCk-nh-qbj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Y7C-up-tOK"/>
+                <constraint firstItem="CCk-nh-qbj" firstAttribute="trailing" secondItem="XX6-GX-eYm" secondAttribute="trailing" id="lj0-5h-IR6"/>
+                <constraint firstItem="sEN-nc-rOM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="w5N-eI-CKv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="184.80000000000001" y="56.671664167916049"/>
+        </view>
+    </objects>
+</document>
