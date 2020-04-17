@@ -31,6 +31,16 @@ class ListCollCell: UICollectionViewCell {
         
     }
     
+    func configCellMore(item: PlayListModels) {
+        if let strUrl = item.playlistThumbMedium {
+            let url = URL(string:strUrl)
+            self.img.kf.setImage(with: url)
+        }else{
+            self.img.image = UIImage(named: "image_thumb")
+        }
+        self.lblTitle.text = "More"
+        self.lblNumSong.text = ""
+    }
 
     
     func configCell(item: PlayListModels) {

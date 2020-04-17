@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.9.1)
   - BmoViewPager (5.0.0)
+  - DynamicBlurView (4.0.0)
   - EmptyDataSet-Swift (5.0.0)
   - FittedSheets (1.4.5)
   - FSPagerView (0.8.3)
@@ -12,11 +13,19 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - PinterestLayout (1.0.3)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
   - PullToRefreshKit (0.8.8)
+  - Realm (4.4.0):
+    - Realm/Headers (= 4.4.0)
+  - Realm/Headers (4.4.0)
+  - RealmSwift (4.4.0):
+    - Realm (= 4.4.0)
   - Result (4.1.0)
   - SwiftyJSON (5.0.0)
   - Toast-Swift (5.0.1)
   - ViewAnimator (2.7.0)
+  - YoutubePlayerView (1.2.1)
 
 DEPENDENCIES:
   - BmoViewPager
@@ -27,15 +36,19 @@ DEPENDENCIES:
   - Kingfisher
   - Moya
   - PinterestLayout
+  - PopupDialog
   - PullToRefreshKit
+  - RealmSwift
   - SwiftyJSON
   - Toast-Swift
   - ViewAnimator
+  - YoutubePlayerView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - BmoViewPager
+    - DynamicBlurView
     - EmptyDataSet-Swift
     - FittedSheets
     - FSPagerView
@@ -43,15 +56,20 @@ SPEC REPOS:
     - Kingfisher
     - Moya
     - PinterestLayout
+    - PopupDialog
     - PullToRefreshKit
+    - Realm
+    - RealmSwift
     - Result
     - SwiftyJSON
     - Toast-Swift
     - ViewAnimator
+    - YoutubePlayerView
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BmoViewPager: 4bf4004de0a9ff51821cdadbb070ab707df3ac64
+  DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   FittedSheets: 7f754c9f6fb4ea330cbc57c652b594255f2a6819
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
@@ -59,12 +77,16 @@ SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   PinterestLayout: f1c7ec0254ffa842d69f1b43e4436c8ded4359b9
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
+  Realm: e125f464884cda953ebefe70c671b75b03b81b9b
+  RealmSwift: 33656a42bd300959a081fc13347376bc478071af
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
+  YoutubePlayerView: 3870fc10f2db3f54156697757f44d304203bdc7e
 
-PODFILE CHECKSUM: 691adbf1367b46420989937987d3a525d2f68b3f
+PODFILE CHECKSUM: 2ea2b0f15a8492b014ab6a2f5b8ea1edba4ac24b
 
 COCOAPODS: 1.9.1

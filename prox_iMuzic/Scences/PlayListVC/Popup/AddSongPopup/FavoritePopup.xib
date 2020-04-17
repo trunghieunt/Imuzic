@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritePopup" customModule="prox_iMuzic" customModuleProvider="target">
+            <connections>
+                <outlet property="img" destination="rMv-cJ-UEc" id="HSL-YO-37R"/>
+                <outlet property="lblsinger" destination="eAw-xx-0Dc" id="1d1-re-ZFx"/>
+                <outlet property="titleSong" destination="yB5-PS-fAy" id="rsS-az-22m"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewPP" destination="geE-oe-2LP" id="fUn-i7-tqH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geE-oe-2LP">
+                    <rect key="frame" x="0.0" y="52" width="414" height="278"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F79-dQ-UOF">
+                            <rect key="frame" x="36" y="140" width="342" height="1"/>
+                            <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="OYR-ff-OV3"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_like_red" translatesAutoresizingMaskIntoConstraints="NO" id="d89-WZ-XRU">
+                            <rect key="frame" x="45" y="176" width="20" height="18"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add_playlist-1" translatesAutoresizingMaskIntoConstraints="NO" id="tVI-cP-SOK">
+                            <rect key="frame" x="45" y="224" width="20" height="20"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjX-Gu-f3f">
+                            <rect key="frame" x="45" y="161" width="127" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="127" id="dAw-po-doC"/>
+                                <constraint firstAttribute="height" constant="46" id="ttx-Ss-c4n"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Unlike">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionUnLike:" destination="-1" eventType="touchUpInside" id="EQ3-gG-1lo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-9i-4ee">
+                            <rect key="frame" x="45" y="210" width="201" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="46" id="TVS-no-ULF"/>
+                                <constraint firstAttribute="width" constant="201" id="qvy-MB-Sm8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Add to playlist">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionAddPlayList:" destination="-1" eventType="touchUpInside" id="sgT-aK-sgZ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="278" id="2Fa-RD-KkR"/>
+                        <constraint firstItem="QjX-Gu-f3f" firstAttribute="leading" secondItem="geE-oe-2LP" secondAttribute="leading" constant="45" id="4dw-r7-l3J"/>
+                        <constraint firstItem="3r6-9i-4ee" firstAttribute="centerY" secondItem="tVI-cP-SOK" secondAttribute="centerY" constant="-1" id="Iwz-nA-pGU"/>
+                        <constraint firstItem="3r6-9i-4ee" firstAttribute="leading" secondItem="geE-oe-2LP" secondAttribute="leading" constant="45" id="JeT-Tq-N0h"/>
+                        <constraint firstItem="QjX-Gu-f3f" firstAttribute="centerY" secondItem="d89-WZ-XRU" secondAttribute="centerY" constant="-1" id="Tpi-Nm-gDs"/>
+                        <constraint firstItem="F79-dQ-UOF" firstAttribute="leading" secondItem="geE-oe-2LP" secondAttribute="leading" constant="36" id="a5C-Jc-yey"/>
+                        <constraint firstItem="F79-dQ-UOF" firstAttribute="top" secondItem="geE-oe-2LP" secondAttribute="top" constant="140" id="bX8-sm-UBG"/>
+                        <constraint firstItem="d89-WZ-XRU" firstAttribute="top" secondItem="F79-dQ-UOF" secondAttribute="bottom" constant="35" id="cvk-bZ-ap8"/>
+                        <constraint firstItem="tVI-cP-SOK" firstAttribute="top" secondItem="d89-WZ-XRU" secondAttribute="bottom" constant="30" id="hPF-ea-bOo"/>
+                        <constraint firstItem="F79-dQ-UOF" firstAttribute="centerX" secondItem="geE-oe-2LP" secondAttribute="centerX" id="hdU-ki-bFK"/>
+                        <constraint firstItem="d89-WZ-XRU" firstAttribute="leading" secondItem="geE-oe-2LP" secondAttribute="leading" constant="45" id="lms-Ko-nfQ"/>
+                        <constraint firstItem="tVI-cP-SOK" firstAttribute="leading" secondItem="geE-oe-2LP" secondAttribute="leading" constant="45" id="yOy-g1-tx5"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_thumb" translatesAutoresizingMaskIntoConstraints="NO" id="rMv-cJ-UEc">
+                    <rect key="frame" x="157" y="2" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Lk8-4W-kmE"/>
+                        <constraint firstAttribute="width" constant="100" id="iNe-am-Yk7"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attention" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yB5-PS-fAy">
+                    <rect key="frame" x="12" y="117" width="390" height="24"/>
+                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Madge Joseph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAw-xx-0Dc">
+                    <rect key="frame" x="12" y="147" width="390" height="22.666666666666657"/>
+                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.098111087328767124" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eAw-xx-0Dc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2mn-yE-Ac8"/>
+                <constraint firstItem="rMv-cJ-UEc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="2" id="8mG-Jo-Kn2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yB5-PS-fAy" secondAttribute="trailing" constant="12" id="D5H-QV-1gD"/>
+                <constraint firstItem="geE-oe-2LP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="FJw-m9-D8E"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eAw-xx-0Dc" secondAttribute="trailing" constant="12" id="Wmk-h8-s0U"/>
+                <constraint firstItem="eAw-xx-0Dc" firstAttribute="top" secondItem="yB5-PS-fAy" secondAttribute="bottom" constant="6" id="hG3-6X-t82"/>
+                <constraint firstItem="yB5-PS-fAy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hWA-6Z-QyE"/>
+                <constraint firstItem="geE-oe-2LP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="i7C-C0-dau"/>
+                <constraint firstItem="geE-oe-2LP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iTa-bx-jIH"/>
+                <constraint firstItem="yB5-PS-fAy" firstAttribute="top" secondItem="rMv-cJ-UEc" secondAttribute="bottom" constant="15" id="jsc-g3-vap"/>
+                <constraint firstItem="rMv-cJ-UEc" firstAttribute="centerY" secondItem="geE-oe-2LP" secondAttribute="top" id="ksy-4d-vw8"/>
+                <constraint firstItem="rMv-cJ-UEc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mQ5-tI-KrB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="134.78260869565219" y="65.217391304347828"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_add_playlist-1" width="20" height="20"/>
+        <image name="ic_like_red" width="20" height="18"/>
+        <image name="image_thumb" width="500" height="500"/>
+    </resources>
+</document>

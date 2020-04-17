@@ -66,10 +66,10 @@ struct ImuzicAPIManager {
         }
     }
     
-    func getListPlaylist(cateID: String, limit: String,success :  @escaping ([PlayListModels]) -> Void,failed :  @escaping (String) -> Void) {
+    func getListPlaylist(cateID: String, limit: String,offset: String,success :  @escaping ([PlayListModels]) -> Void,failed :  @escaping (String) -> Void) {
         var itemsPlayList : [PlayListModels] = []
         
-        provider.request(.getListPlaylist(cateID: cateID, limit: limit)) { (result) in
+        provider.request(.getListPlaylist(cateID: cateID, limit: limit, offset: offset)) { (result) in
             switch result{
             case .success(let value):
                 do {
@@ -90,10 +90,10 @@ struct ImuzicAPIManager {
         }
     }
     
-    func getListSongs(subCateId: String, limit: String,success :  @escaping ([SongModel], Int?) -> Void,failed :  @escaping (String) -> Void) {
+    func getListSongs(subCateId: String, limit: String, offset: String,success :  @escaping ([SongModel], Int?) -> Void,failed :  @escaping (String) -> Void) {
         var listSong : [SongModel] = []
         
-        provider.request(.getAllSongs(subCateId: subCateId, limit: limit)) { (result) in
+        provider.request(.getAllSongs(subCateId: subCateId, limit: limit, offset: offset)) { (result) in
             switch result{
             case .success(let value):
                 do {
@@ -113,4 +113,54 @@ struct ImuzicAPIManager {
             }
         }
     }
+    
+    func getListFree(offset: String,success :  @escaping ([SearchModels], Int?) -> Void,failed :  @escaping (String) -> Void) {
+        var listSong : [SearchModels] = []
+        
+        provider.request(.getListFree(offset: offset)) { (result) in
+            switch result{
+            case .success(let value):
+                do {
+                    let json = try JSON.init(data: value.data)
+                    let results = json["Imuzic"]["Items"].arrayValue
+                    let countSong = json["Imuzic"]["TotalSongs"].int
+                    for result in results{
+                        let song = SearchModels.init(json: result)
+                        listSong.append(song)
+                    }
+                    success(listSong, countSong)
+                } catch(let error) {
+                    failed(error.localizedDescription)
+                }
+            case .failure(let error):
+                failed(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getListSearch(q: String, limit: String,success :  @escaping ([SearchModels]) -> Void,failed :  @escaping (String) -> Void) {
+        var listSong : [SearchModels] = []
+        
+        provider.request(.getSearch(q: q, limit: limit)) { (result) in
+            switch result{
+            case .success(let value):
+                do {
+                    let json = try JSON.init(data: value.data)
+                    print(json)
+                    let results = json["TrailerBox"].arrayValue
+                    for result in results{
+                        let song = SearchModels.init(json: result)
+                        listSong.append(song)
+                    }
+                    success(listSong)
+                } catch(let error) {
+                    failed(error.localizedDescription)
+                }
+            case .failure(let error):
+                failed(error.localizedDescription)
+            }
+        }
+    }
 }
+
+

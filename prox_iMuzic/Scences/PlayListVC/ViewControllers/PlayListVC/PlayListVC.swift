@@ -25,7 +25,7 @@ class PlayListVC: UIViewController {
     
     
     
-    var listPlayList = 4
+    var listPlayList : [PlayListLocalModels] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +35,25 @@ class PlayListVC: UIViewController {
         checkData()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadData()
+    }
+    
+    func loadData() {
+        StoragePlayList.sharedInstance.loadPlayList(success: { (listPlayList) in
+            self.listPlayList = listPlayList
+            self.checkData()
+            self.tableView.reloadData()
+        })
+    }
     
     func checkData() {
-        if self.listPlayList == 0{
+        if self.listPlayList.count == 0{
+            self.typeView(checkType: 1)
             self.outletAdd.isHidden = true
             self.segmentView.isHidden = true
+            self.segmentView.isEnabledForSegment(at: 0)
         }else{
             self.outletAdd.isHidden = false
             self.segmentView.isHidden = false
@@ -48,10 +62,20 @@ class PlayListVC: UIViewController {
 
     func configTB() {
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.tableView.separatorStyle = .none
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.registerCell(PlayListCell.className)
+        if #available(iOS 11.0, *) {
+
+        }else{
+            let adjustForTabbarInsets: UIEdgeInsets = UIEdgeInsets(
+                top: 0, left: 0,
+                bottom: self.tabBarController!.tabBar.frame.height + 40, right: 0)
+             self.tableView.contentInset = adjustForTabbarInsets
+             self.tableView.scrollIndicatorInsets = adjustForTabbarInsets
+        }
     }
 
     func configFSView() {
@@ -100,9 +124,16 @@ class PlayListVC: UIViewController {
     
     @IBAction func actionAddPlayList(_ sender: Any) {
         let vc = AddPlayListPopup.loadFromNib()
+        vc.listPlayList = self.listPlayList
+        vc.reload = {[weak self](listPlayList)in
+            self?.listPlayList = listPlayList
+            self?.tableView.reloadData()
+            self?.PagerView.reloadData()
+            self?.checkData()
+        }
         let sheetController = SheetViewController(controller: vc,sizes: [.fullScreen,.fixed(self.view.bounds.width)])
         sheetController.topCornersRadius = 15
-        sheetController.view.frame.size.width = self.view.bounds.width
+        
         self.present(sheetController, animated: false, completion: nil)
     }
 
@@ -111,32 +142,62 @@ class PlayListVC: UIViewController {
 
 extension PlayListVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listPlayList
+        return listPlayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlayListCell.className, for: indexPath) as! PlayListCell
+        cell.configCell(item: self.listPlayList[indexPath.row])
+        cell.doneRemove = {[weak self] in
+            self?.listPlayList.remove(at: indexPath.row)
+            StoragePlayList.sharedInstance.savePlayList(listFavorites: self?.listPlayList ?? [])
+            self?.checkData()
+            self?.tableView.reloadData()
+            self?.PagerView.reloadData()
+        }
         return cell
     }
-    
-    
 }
+
+
+extension PlayListVC: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = PlayListDetailVC.loadFromNib()
+        vc.listPlayer = self.listPlayList[indexPath.row]
+        vc.type = 1
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 
 extension PlayListVC: FSPagerViewDelegate{
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        let vc = PlayListDetailVC.loadFromNib()
+        vc.listPlayer = self.listPlayList[index]
+        vc.type = 1
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
 }
 
+
+
 extension PlayListVC: FSPagerViewDataSource{
     public func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return listPlayList
+        return listPlayList.count
     }
     
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: PlayListFSCell.className, at: index) as! PlayListFSCell
-//        cell.configCell(item: self.listPlayList[index])
+        cell.configCell(item: self.listPlayList[index])
+        cell.doneRemove = {[weak self] in
+            self?.listPlayList.remove(at: index)
+            StoragePlayList.sharedInstance.savePlayList(listFavorites: self?.listPlayList ?? [])
+            self?.tableView.reloadData()
+            self?.PagerView.reloadData()
+            self?.checkData()
+        }
         return cell
     }
 }
@@ -162,11 +223,19 @@ extension PlayListVC: EmptyDataSetDelegate{
         return UIImage(named: "createPlayList")
     }
     
-    func emptyDataSet(_ scrollView: UIScrollView, didTapView view: UIView) {
+    
+    func emptyDataSet(_ scrollView: UIScrollView, didTapButton button: UIButton) {
         let vc = AddPlayListPopup.loadFromNib()
+        vc.listPlayList = self.listPlayList
+        vc.reload = {[weak self](listPlayList)in
+            self?.listPlayList = listPlayList
+            self?.tableView.reloadData()
+            self?.PagerView.reloadData()
+            self?.checkData()
+        }
         let sheetController = SheetViewController(controller: vc,sizes: [.fullScreen,.fixed(self.view.bounds.width)])
         sheetController.topCornersRadius = 15
-        sheetController.view.frame.size.width = self.view.bounds.width
+        
         self.present(sheetController, animated: false, completion: nil)
     }
 }

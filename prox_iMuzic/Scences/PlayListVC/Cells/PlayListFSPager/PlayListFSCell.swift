@@ -19,6 +19,8 @@ class PlayListFSCell: FSPagerViewCell {
     
     @IBOutlet weak var overView: UILabel!
     
+     var doneRemove: ()->() = { }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configUI()
@@ -29,7 +31,23 @@ class PlayListFSCell: FSPagerViewCell {
         viewShadow.layer.cornerRadius = 15
     }
     
-    func configCell() {
-        
+    func configCell(item: PlayListLocalModels) {
+        if item.imageUrl == ""{
+            self.img.image = UIImage(named: "image_thumb")
+        }else{
+            if let strUrl = item.imageUrl {
+                let url = URL(string:strUrl)
+                self.img.kf.setImage(with: url)
+            }else{
+                self.img.image = UIImage(named: "image_thumb")
+            }
+        }
+        self.nameList.text = item.title
+        self.overView.text = (item.songNumber ?? "0") + " songs"
     }
+    
+    @IBAction func actionRemove(_ sender: Any) {
+        self.doneRemove()
+    }
+    
 }

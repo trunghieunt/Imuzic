@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddSongPopup" customModule="prox_iMuzic" customModuleProvider="target">
+            <connections>
+                <outlet property="tableview" destination="1ab-sf-nGk" id="Sg1-nA-RpH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new playlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYl-cr-0Gb">
+                    <rect key="frame" x="12" y="15" width="166.5" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="39o-oA-yet"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieO-yF-QRb">
+                    <rect key="frame" x="323" y="12" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="8Wr-Dh-EwB"/>
+                        <constraint firstAttribute="width" constant="40" id="pL2-QM-vVu"/>
+                    </constraints>
+                    <state key="normal" image="ic_add_playlist"/>
+                    <connections>
+                        <action selector="addPlayList:" destination="-1" eventType="touchUpInside" id="Deg-rE-vuv"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1ab-sf-nGk">
+                    <rect key="frame" x="0.0" y="60" width="375" height="256"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="256" id="Owi-fY-Uou"/>
+                    </constraints>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ieO-yF-QRb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="1UD-Ku-2Ej"/>
+                <constraint firstItem="aYl-cr-0Gb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="2qf-sL-cXv"/>
+                <constraint firstItem="1ab-sf-nGk" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="FLJ-5K-2Bq"/>
+                <constraint firstItem="1ab-sf-nGk" firstAttribute="top" secondItem="ieO-yF-QRb" secondAttribute="bottom" constant="8" id="Ixn-Nx-26V"/>
+                <constraint firstItem="1ab-sf-nGk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="N7H-3S-RZE"/>
+                <constraint firstItem="1ab-sf-nGk" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZAN-tU-5iC"/>
+                <constraint firstItem="aYl-cr-0Gb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="j5U-Dw-zYI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ieO-yF-QRb" secondAttribute="trailing" constant="12" id="s9v-Wz-l1l"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="135.19999999999999" y="-62.068965517241381"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_add_playlist" width="36" height="36"/>
+    </resources>
+</document>

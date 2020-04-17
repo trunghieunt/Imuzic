@@ -14,28 +14,44 @@ class PlayListDetailVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var playlist: GenresModels?
     var playList: PlayListModels?
+    
     private var page = 1
     
+    var type = 0
+    
+    var id = "1"
+    
     var listSongs: [SongModel] = []
+    
+    var listPlayer: PlayListLocalModels?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        getListSong(false)
+        if type == 0{
+            configTB()
+            getListSong(false)
+        }else if type == 1{
+            self.listSongs = self.listPlayer?.songModel ?? []
+        }else{
+            configTB()
+            getListSong(false)
+        }
     }
     
     func getListSong(_ loadmore: Bool) {
         
         if loadmore{
-            self.page += 1
+            self.page += 20
         }else{
-            self.page = 1
+            self.page = 0
             self.showLoadingIndicator()
         }
         
         
-        ImuzicAPIManager.sharedInstance.getListSongs(subCateId: self.playList?.cateId ?? "1", limit: "20", success: { [weak self](listSongs, totalSongs) in
+        ImuzicAPIManager.sharedInstance.getListSongs(subCateId: self.id, limit: "20", offset: String(self.page), success: { [weak self](listSongs, totalSongs) in
             guard let sSelf = self else {return}
             if loadmore{
                 sSelf.listSongs.append(contentsOf: listSongs)
@@ -57,12 +73,14 @@ class PlayListDetailVC: UIViewController {
     }
     func configUI() {
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.tableView.registerCell(BannerDetailPLCell.className)
         self.tableView.registerCell(SongItemsCell.className)
         self.tableView.separatorStyle = .none
-        tableView.allowsSelection = false
 
-        self.tableView.reloadData()
+    }
+    
+    func configTB() {
         
         self.tableView.configRefreshFooter(container: self) {
             self.getListSong(true)
@@ -75,7 +93,6 @@ class PlayListDetailVC: UIViewController {
         }
     }
     
-    
 }
 
 
@@ -87,15 +104,48 @@ extension PlayListDetailVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cellBanner = tableView.dequeueReusableCell(withIdentifier: BannerDetailPLCell.className, for: indexPath) as! BannerDetailPLCell
-            cellBanner.configCell(playList: self.playList!)
+            if type == 0{
+                cellBanner.configCell(playList: self.playList!)
+            }else if type == 1{
+                cellBanner.configCell(playList: self.listPlayer!)
+            }else{
+                cellBanner.configCell(playList: self.playlist!)
+            }
+            
+            cellBanner.playerType = {[weak self](isPlay) in
+                let vc = PlayerVC.loadFromNib()
+                print(self!.listSongs.count)
+                vc.listSongs = self!.listSongs
+                
+                if isPlay{
+                    vc.index = 0
+                }else{
+                    vc.index = Int.random(in: 0 ... (self?.listSongs.count)!)
+                }
+                self?.navigationController?.present(vc, animated: true, completion: nil)
+            }
+            
             return cellBanner
         }else{
             let cellItems = tableView.dequeueReusableCell(withIdentifier: SongItemsCell.className, for: indexPath) as! SongItemsCell
             cellItems.configCell(listSong: self.listSongs[indexPath.row - 1])
+            cellItems.selectionStyle = .none
             return cellItems
         }
 
     }
     
     
+}
+
+extension PlayListDetailVC: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row != 0{
+            let vc = PlayerVC.loadFromNib()
+            vc.listSongs = self.listSongs
+            vc.index = indexPath.row - 1
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        }
+        
+    }
 }

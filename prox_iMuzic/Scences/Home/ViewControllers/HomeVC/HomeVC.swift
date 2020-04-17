@@ -41,6 +41,8 @@ class HomeVC: UIViewController {
 
     
     @IBAction func actionSearch(_ sender: Any) {
+        let vc = SearchVC.loadFromNib()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

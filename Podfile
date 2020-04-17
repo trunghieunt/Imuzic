@@ -11,7 +11,7 @@ target 'prox_iMuzic' do
   pod 'FSPagerView'
   pod 'PinterestLayout'
   pod 'BmoViewPager'
-  # Pods for prox_iMuzic
+  pod 'PopupDialog'
   
   pod 'SwiftyJSON'
   pod 'Moya'#, '~> 13.0'
@@ -22,4 +22,9 @@ target 'prox_iMuzic' do
   pod 'IHKeyboardAvoiding'
   
   pod 'ViewAnimator'
+  
+  pod 'YoutubePlayerView'
+  pod 'RealmSwift'
+  
+  
 end

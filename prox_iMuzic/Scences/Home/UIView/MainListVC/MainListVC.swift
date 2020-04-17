@@ -21,7 +21,6 @@ class MainListVC: UIViewController {
         super.viewDidLoad()
         configColl()
         getListPlaylist()
-        print(cateType?.id)
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +28,7 @@ class MainListVC: UIViewController {
         
     }
     func getListPlaylist() {
-        ImuzicAPIManager.sharedInstance.getListPlaylist(cateID: self.cateType?.id! ?? "1", limit: "20", success: { [weak self](listPlayList) in
+        ImuzicAPIManager.sharedInstance.getListPlaylist(cateID: self.cateType?.id! ?? "1", limit: "5", offset: "0", success: { [weak self](listPlayList) in
             guard let sSelf = self else {return}
             sSelf.listPlayList = listPlayList
             sSelf.collectionView.reloadData()
@@ -71,7 +70,13 @@ extension MainListVC: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollCell.className, for: indexPath) as! ListCollCell
-        cell.configCell(item: self.listPlayList[indexPath.row])
+        if indexPath.row == 3{
+            cell.configCellMore(item: self.listPlayList[indexPath.row])
+            
+        }else{
+            cell.configCell(item: self.listPlayList[indexPath.row])
+        }
+        
         return cell
     }
     
@@ -82,9 +87,19 @@ extension MainListVC: UICollectionViewDelegate{
         guard let topVC = UIApplication.topViewController() else {
             return
         }
-        let vc = PlayListDetailVC.loadFromNib()
-        vc.playList = self.listPlayList[indexPath.row]
-        topVC.navigationController?.pushViewController(vc, animated: true)
+        if indexPath.row == 3{
+            let vc = PlayListColVC.loadFromNib()
+            vc.typeCate = self.cateType
+            topVC.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let vc = PlayListDetailVC.loadFromNib()
+            vc.type = 0
+            vc.playList = self.listPlayList[indexPath.row]
+            vc.id = self.listPlayList[indexPath.row].id ?? "1"
+            topVC.navigationController?.pushViewController(vc, animated: true)
+        }
+
+
     }
 }
 

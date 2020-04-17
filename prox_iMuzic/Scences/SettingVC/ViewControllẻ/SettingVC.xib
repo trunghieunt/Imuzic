@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingVC" customModule="prox_iMuzic" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="oTF-Yv-uEp" id="ivd-rt-uS5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89J-aU-q7h">
+                    <rect key="frame" x="18" y="30" width="90.5" height="35"/>
+                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="25"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oTF-Yv-uEp">
+                    <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                    <color key="backgroundColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="oTF-Yv-uEp" secondAttribute="bottom" id="34a-5e-WiE"/>
+                <constraint firstItem="oTF-Yv-uEp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5hY-2P-XtE"/>
+                <constraint firstAttribute="trailing" secondItem="oTF-Yv-uEp" secondAttribute="trailing" id="5nZ-M0-a7i"/>
+                <constraint firstItem="89J-aU-q7h" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="UVA-AF-bFo"/>
+                <constraint firstItem="oTF-Yv-uEp" firstAttribute="top" secondItem="89J-aU-q7h" secondAttribute="bottom" constant="19" id="bgz-gk-i1X"/>
+                <constraint firstItem="89J-aU-q7h" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="dtX-FE-Pwf"/>
+            </constraints>
+            <point key="canvasLocation" x="135.19999999999999" y="136.28185907046478"/>
+        </view>
+    </objects>
+</document>

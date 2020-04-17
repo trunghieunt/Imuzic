@@ -16,6 +16,19 @@
 		EA3144932441A7E700C43B77 /* SongItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3144912441A7E700C43B77 /* SongItemsCell.swift */; };
 		EA3144942441A7E700C43B77 /* SongItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3144922441A7E700C43B77 /* SongItemsCell.xib */; };
 		EA3144962441BA0900C43B77 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3144952441BA0900C43B77 /* SongModel.swift */; };
+		EA4C3D8A24487A5D00C04493 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3D8824487A5D00C04493 /* SettingCell.swift */; };
+		EA4C3D8B24487A5D00C04493 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4C3D8924487A5D00C04493 /* SettingCell.xib */; };
+		EA4C3D8D24487B6300C04493 /* Setting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4C3D8C24487B6300C04493 /* Setting.xcassets */; };
+		EA4C3D90244883E900C04493 /* SettingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3D8F244883E900C04493 /* SettingEnum.swift */; };
+		EA4C3D962448970700C04493 /* BannerSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3D942448970700C04493 /* BannerSettingVC.swift */; };
+		EA4C3D972448970700C04493 /* BannerSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4C3D952448970700C04493 /* BannerSettingVC.xib */; };
+		EA4C3D9B24489E5700C04493 /* SettingXCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3D9924489E5700C04493 /* SettingXCell.swift */; };
+		EA4C3D9C24489E5700C04493 /* SettingXCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4C3D9A24489E5700C04493 /* SettingXCell.xib */; };
+		EA4C3DA02448AEE000C04493 /* SendEmailPP.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3D9E2448AEE000C04493 /* SendEmailPP.swift */; };
+		EA4C3DA12448AEE000C04493 /* SendEmailPP.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4C3D9F2448AEE000C04493 /* SendEmailPP.xib */; };
+		EA4C3DA42448B0AE00C04493 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3DA32448B0AE00C04493 /* UITextView+extension.swift */; };
+		EA59AB822442E97B007AFA4C /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59AB802442E97B007AFA4C /* PlayerVC.swift */; };
+		EA59AB832442E97B007AFA4C /* PlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA59AB812442E97B007AFA4C /* PlayerVC.xib */; };
 		EA5A3CE7243CCAF6002E94D7 /* BubbleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5A3CE4243CCAF6002E94D7 /* BubbleTabBar.swift */; };
 		EA5A3CE8243CCAF6002E94D7 /* BubbleTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5A3CE5243CCAF6002E94D7 /* BubbleTabBarController.swift */; };
 		EA5A3CE9243CCAF6002E94D7 /* CBTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5A3CE6243CCAF6002E94D7 /* CBTabBarButton.swift */; };
@@ -56,6 +69,17 @@
 		EA621C982440A782005F467C /* PlayListFSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA621C962440A782005F467C /* PlayListFSCell.xib */; };
 		EA621CB22440D8A8005F467C /* AddPlayListPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA621CB02440D8A8005F467C /* AddPlayListPopup.swift */; };
 		EA621CB32440D8A8005F467C /* AddPlayListPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA621CB12440D8A8005F467C /* AddPlayListPopup.xib */; };
+		EA6AE39C2445A2EF00C5A2EC /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AE39A2445A2EF00C5A2EC /* SearchVC.swift */; };
+		EA6AE39D2445A2EF00C5A2EC /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA6AE39B2445A2EF00C5A2EC /* SearchVC.xib */; };
+		EA6AE39F2445A5C700C5A2EC /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AE39E2445A5C700C5A2EC /* SearchModels.swift */; };
+		EA6AE3A32445ABDD00C5A2EC /* PlayListLocalModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AE3A22445ABDD00C5A2EC /* PlayListLocalModels.swift */; };
+		EA6AE3A62445B08D00C5A2EC /* StoragePlayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AE3A52445B08D00C5A2EC /* StoragePlayList.swift */; };
+		EA6AE3AA2445D6CF00C5A2EC /* AddSongPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AE3A82445D6CF00C5A2EC /* AddSongPopup.swift */; };
+		EA6AE3AB2445D6CF00C5A2EC /* AddSongPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA6AE3A92445D6CF00C5A2EC /* AddSongPopup.xib */; };
+		EA6E1E842444DDD3007FE41B /* PlayListColVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6E1E822444DDD3007FE41B /* PlayListColVC.swift */; };
+		EA6E1E852444DDD3007FE41B /* PlayListColVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA6E1E832444DDD3007FE41B /* PlayListColVC.xib */; };
+		EA76FFD02447613F009EFA39 /* FavoritePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA76FFCE2447613F009EFA39 /* FavoritePopup.swift */; };
+		EA76FFD12447613F009EFA39 /* FavoritePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA76FFCF2447613F009EFA39 /* FavoritePopup.xib */; };
 		EAB7400A243DA787007202A9 /* ListCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB74008243DA787007202A9 /* ListCollCell.swift */; };
 		EAB7400B243DA787007202A9 /* ListCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAB74009243DA787007202A9 /* ListCollCell.xib */; };
 		EAB7400E243DB863007202A9 /* EnumsHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7400D243DB863007202A9 /* EnumsHome.swift */; };
@@ -134,6 +158,19 @@
 		EA3144912441A7E700C43B77 /* SongItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongItemsCell.swift; sourceTree = "<group>"; };
 		EA3144922441A7E700C43B77 /* SongItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongItemsCell.xib; sourceTree = "<group>"; };
 		EA3144952441BA0900C43B77 /* SongModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
+		EA4C3D8824487A5D00C04493 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		EA4C3D8924487A5D00C04493 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		EA4C3D8C24487B6300C04493 /* Setting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Setting.xcassets; sourceTree = "<group>"; };
+		EA4C3D8F244883E900C04493 /* SettingEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingEnum.swift; sourceTree = "<group>"; };
+		EA4C3D942448970700C04493 /* BannerSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSettingVC.swift; sourceTree = "<group>"; };
+		EA4C3D952448970700C04493 /* BannerSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerSettingVC.xib; sourceTree = "<group>"; };
+		EA4C3D9924489E5700C04493 /* SettingXCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingXCell.swift; sourceTree = "<group>"; };
+		EA4C3D9A24489E5700C04493 /* SettingXCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingXCell.xib; sourceTree = "<group>"; };
+		EA4C3D9E2448AEE000C04493 /* SendEmailPP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendEmailPP.swift; sourceTree = "<group>"; };
+		EA4C3D9F2448AEE000C04493 /* SendEmailPP.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendEmailPP.xib; sourceTree = "<group>"; };
+		EA4C3DA32448B0AE00C04493 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
+		EA59AB802442E97B007AFA4C /* PlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
+		EA59AB812442E97B007AFA4C /* PlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerVC.xib; sourceTree = "<group>"; };
 		EA5A3CE4243CCAF6002E94D7 /* BubbleTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBar.swift; sourceTree = "<group>"; };
 		EA5A3CE5243CCAF6002E94D7 /* BubbleTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBarController.swift; sourceTree = "<group>"; };
 		EA5A3CE6243CCAF6002E94D7 /* CBTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTabBarButton.swift; sourceTree = "<group>"; };
@@ -174,6 +211,17 @@
 		EA621C962440A782005F467C /* PlayListFSCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayListFSCell.xib; sourceTree = "<group>"; };
 		EA621CB02440D8A8005F467C /* AddPlayListPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayListPopup.swift; sourceTree = "<group>"; };
 		EA621CB12440D8A8005F467C /* AddPlayListPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPlayListPopup.xib; sourceTree = "<group>"; };
+		EA6AE39A2445A2EF00C5A2EC /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		EA6AE39B2445A2EF00C5A2EC /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		EA6AE39E2445A5C700C5A2EC /* SearchModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		EA6AE3A22445ABDD00C5A2EC /* PlayListLocalModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListLocalModels.swift; sourceTree = "<group>"; };
+		EA6AE3A52445B08D00C5A2EC /* StoragePlayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragePlayList.swift; sourceTree = "<group>"; };
+		EA6AE3A82445D6CF00C5A2EC /* AddSongPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongPopup.swift; sourceTree = "<group>"; };
+		EA6AE3A92445D6CF00C5A2EC /* AddSongPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSongPopup.xib; sourceTree = "<group>"; };
+		EA6E1E822444DDD3007FE41B /* PlayListColVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListColVC.swift; sourceTree = "<group>"; };
+		EA6E1E832444DDD3007FE41B /* PlayListColVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayListColVC.xib; sourceTree = "<group>"; };
+		EA76FFCE2447613F009EFA39 /* FavoritePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritePopup.swift; path = prox_iMuzic/Scences/PlayListVC/Popup/AddSongPopup/FavoritePopup.swift; sourceTree = SOURCE_ROOT; };
+		EA76FFCF2447613F009EFA39 /* FavoritePopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FavoritePopup.xib; path = prox_iMuzic/Scences/PlayListVC/Popup/AddSongPopup/FavoritePopup.xib; sourceTree = SOURCE_ROOT; };
 		EAB74008243DA787007202A9 /* ListCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollCell.swift; sourceTree = "<group>"; };
 		EAB74009243DA787007202A9 /* ListCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollCell.xib; sourceTree = "<group>"; };
 		EAB7400D243DB863007202A9 /* EnumsHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumsHome.swift; sourceTree = "<group>"; };
@@ -316,6 +364,87 @@
 			path = SongItemsCell;
 			sourceTree = "<group>";
 		};
+		EA4C3D8624487A0800C04493 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EADC0027243C6147005D5502 /* SettingVC.swift */,
+				EADC0028243C6147005D5502 /* SettingVC.xib */,
+			);
+			name = ViewController;
+			path = "ViewControllẻ";
+			sourceTree = "<group>";
+		};
+		EA4C3D8724487A3A00C04493 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EA4C3D9824489DC200C04493 /* SettingXCell */,
+				EA4C3D93244896E400C04493 /* BannerSetting */,
+				EA4C3D91244896D000C04493 /* SettingCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EA4C3D8E244883E900C04493 /* Ultis */ = {
+			isa = PBXGroup;
+			children = (
+				EA4C3D8F244883E900C04493 /* SettingEnum.swift */,
+			);
+			path = Ultis;
+			sourceTree = "<group>";
+		};
+		EA4C3D91244896D000C04493 /* SettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				EA4C3D8824487A5D00C04493 /* SettingCell.swift */,
+				EA4C3D8924487A5D00C04493 /* SettingCell.xib */,
+			);
+			path = SettingCell;
+			sourceTree = "<group>";
+		};
+		EA4C3D93244896E400C04493 /* BannerSetting */ = {
+			isa = PBXGroup;
+			children = (
+				EA4C3D942448970700C04493 /* BannerSettingVC.swift */,
+				EA4C3D952448970700C04493 /* BannerSettingVC.xib */,
+			);
+			path = BannerSetting;
+			sourceTree = "<group>";
+		};
+		EA4C3D9824489DC200C04493 /* SettingXCell */ = {
+			isa = PBXGroup;
+			children = (
+				EA4C3D9924489E5700C04493 /* SettingXCell.swift */,
+				EA4C3D9A24489E5700C04493 /* SettingXCell.xib */,
+			);
+			path = SettingXCell;
+			sourceTree = "<group>";
+		};
+		EA4C3D9D2448AEE000C04493 /* SendEmailPP */ = {
+			isa = PBXGroup;
+			children = (
+				EA4C3D9E2448AEE000C04493 /* SendEmailPP.swift */,
+				EA4C3D9F2448AEE000C04493 /* SendEmailPP.xib */,
+			);
+			path = SendEmailPP;
+			sourceTree = "<group>";
+		};
+		EA4C3DA22448AEE300C04493 /* PP */ = {
+			isa = PBXGroup;
+			children = (
+				EA4C3D9D2448AEE000C04493 /* SendEmailPP */,
+			);
+			path = PP;
+			sourceTree = "<group>";
+		};
+		EA59AB7F2442E957007AFA4C /* PlayerVC */ = {
+			isa = PBXGroup;
+			children = (
+				EA59AB802442E97B007AFA4C /* PlayerVC.swift */,
+				EA59AB812442E97B007AFA4C /* PlayerVC.xib */,
+			);
+			path = PlayerVC;
+			sourceTree = "<group>";
+		};
 		EA5A3CE3243CCAE5002E94D7 /* BubbleTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +458,7 @@
 		EA5A3CF5243CEE7F002E94D7 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				EA4C3D8E244883E900C04493 /* Ultis */,
 				EA5A3CF6243CEE89002E94D7 /* Viewcontroller */,
 			);
 			path = Favorites;
@@ -354,6 +484,8 @@
 		EA5A3CFE243D0020002E94D7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA6AE3992445A2D400C5A2EC /* SearchVC */,
+				EA6E1E802444DCBB007FE41B /* PlayListColVC */,
 				EAE612AD243F21B2003BC53C /* GendersVC */,
 				EA5A3CFF243D002E002E94D7 /* HomeVC */,
 			);
@@ -438,6 +570,7 @@
 		EA621C86244040A2005F467C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA59AB7F2442E957007AFA4C /* PlayerVC */,
 				EA31448524418DC000C43B77 /* PlayListDetailVC */,
 				EA31448424418DAD00C43B77 /* PlayListVC */,
 			);
@@ -494,6 +627,8 @@
 		EA621CAE2440D787005F467C /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				EA76FFCD24476121009EFA39 /* FavoritePopup */,
+				EA6AE3A72445D6AD00C5A2EC /* AddSongPopup */,
 				EA621CAF2440D7F5005F467C /* AddPlayListPopup */,
 			);
 			path = Popup;
@@ -506,6 +641,50 @@
 				EA621CB12440D8A8005F467C /* AddPlayListPopup.xib */,
 			);
 			path = AddPlayListPopup;
+			sourceTree = "<group>";
+		};
+		EA6AE3992445A2D400C5A2EC /* SearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				EA6AE39A2445A2EF00C5A2EC /* SearchVC.swift */,
+				EA6AE39B2445A2EF00C5A2EC /* SearchVC.xib */,
+			);
+			path = SearchVC;
+			sourceTree = "<group>";
+		};
+		EA6AE3A42445B07B00C5A2EC /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				EA6AE3A52445B08D00C5A2EC /* StoragePlayList.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		EA6AE3A72445D6AD00C5A2EC /* AddSongPopup */ = {
+			isa = PBXGroup;
+			children = (
+				EA6AE3A82445D6CF00C5A2EC /* AddSongPopup.swift */,
+				EA6AE3A92445D6CF00C5A2EC /* AddSongPopup.xib */,
+			);
+			path = AddSongPopup;
+			sourceTree = "<group>";
+		};
+		EA6E1E802444DCBB007FE41B /* PlayListColVC */ = {
+			isa = PBXGroup;
+			children = (
+				EA6E1E822444DDD3007FE41B /* PlayListColVC.swift */,
+				EA6E1E832444DDD3007FE41B /* PlayListColVC.xib */,
+			);
+			path = PlayListColVC;
+			sourceTree = "<group>";
+		};
+		EA76FFCD24476121009EFA39 /* FavoritePopup */ = {
+			isa = PBXGroup;
+			children = (
+				EA76FFCE2447613F009EFA39 /* FavoritePopup.swift */,
+				EA76FFCF2447613F009EFA39 /* FavoritePopup.xib */,
+			);
+			path = FavoritePopup;
 			sourceTree = "<group>";
 		};
 		EAB74007243DA75C007202A9 /* ListCollCell */ = {
@@ -572,7 +751,9 @@
 		EAB74027243E1ED7007202A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EA6AE3A22445ABDD00C5A2EC /* PlayListLocalModels.swift */,
 				EA3144952441BA0900C43B77 /* SongModel.swift */,
+				EA6AE39E2445A5C700C5A2EC /* SearchModels.swift */,
 				EAB74032243E5F08007202A9 /* GenresModels.swift */,
 				EAB7402E243E3DEC007202A9 /* PlayListModels.swift */,
 				EAB74028243E1F66007202A9 /* CateType.swift */,
@@ -622,8 +803,10 @@
 		EADC0026243C612C005D5502 /* SettingVC */ = {
 			isa = PBXGroup;
 			children = (
-				EADC0027243C6147005D5502 /* SettingVC.swift */,
-				EADC0028243C6147005D5502 /* SettingVC.xib */,
+				EA4C3DA22448AEE300C04493 /* PP */,
+				EA4C3D8C24487B6300C04493 /* Setting.xcassets */,
+				EA4C3D8724487A3A00C04493 /* Cell */,
+				EA4C3D8624487A0800C04493 /* ViewController */,
 			);
 			path = SettingVC;
 			sourceTree = "<group>";
@@ -681,6 +864,7 @@
 			isa = PBXGroup;
 			children = (
 				EADCFFCE243C58BD005D5502 /* App */,
+				EA6AE3A42445B07B00C5A2EC /* Business */,
 				EADCFFED243C5E60005D5502 /* Libraries */,
 				EADCFFD8243C5C61005D5502 /* Helpers */,
 				EADC0043243CA60D005D5502 /* CustomComponents */,
@@ -753,6 +937,7 @@
 				EAB74024243E1930007202A9 /* String+Extension.swift */,
 				EAB74030243E571D007202A9 /* GradientView.swift */,
 				EAE612AB243F139B003BC53C /* UISegmentedControl+Extension.swift */,
+				EA4C3DA32448B0AE00C04493 /* UITextView+extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -881,8 +1066,10 @@
 			files = (
 				EA5A3D32243D728A002E94D7 /* OFL.txt in Resources */,
 				EADC002F243C616C005D5502 /* PlayListVC.xib in Resources */,
+				EA76FFD12447613F009EFA39 /* FavoritePopup.xib in Resources */,
 				EA5A3D2E243D728A002E94D7 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				EA5A3D36243D728A002E94D7 /* Poppins-Black.ttf in Resources */,
+				EA6AE39D2445A2EF00C5A2EC /* SearchVC.xib in Resources */,
 				EA5A3D33243D728A002E94D7 /* Poppins-Regular.ttf in Resources */,
 				EADC002A243C6147005D5502 /* SettingVC.xib in Resources */,
 				EADC0003243C5E61005D5502 /* watchOS-Info.plist in Resources */,
@@ -897,6 +1084,7 @@
 				EADCFFC7243C57B4005D5502 /* LaunchScreen.storyboard in Resources */,
 				EA621C8F24405806005F467C /* PlayListCell.xib in Resources */,
 				EADC0018243C5E8B005D5502 /* CoreSansGS45RegularItalic.ttf in Resources */,
+				EA4C3D8B24487A5D00C04493 /* SettingCell.xib in Resources */,
 				EA5A3D2D243D728A002E94D7 /* Poppins-Medium.ttf in Resources */,
 				EADC0020243C5E8B005D5502 /* Effra_Trial_Rg1.ttf in Resources */,
 				EA5A3D3A243D728A002E94D7 /* Poppins-MediumItalic.ttf in Resources */,
@@ -905,10 +1093,13 @@
 				EA5A3D2A243D728A002E94D7 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				EA31448F2441938000C43B77 /* BannerDetailPLCell.xib in Resources */,
 				EADC001A243C5E8B005D5502 /* CoreSansGS25ExtraLight.ttf in Resources */,
+				EA6AE3AB2445D6CF00C5A2EC /* AddSongPopup.xib in Resources */,
 				EA5A3CFD243D001C002E94D7 /* Home.xcassets in Resources */,
+				EA59AB832442E97B007AFA4C /* PlayerVC.xib in Resources */,
 				EAB74023243DF575007202A9 /* MainListVC.xib in Resources */,
 				EADC0004243C5E61005D5502 /* iOS-Info.plist in Resources */,
 				EA5A3D31243D728A002E94D7 /* Poppins-BlackItalic.ttf in Resources */,
+				EA6E1E852444DDD3007FE41B /* PlayListColVC.xib in Resources */,
 				EA5A3CFB243CEEB3002E94D7 /* FavoritesVC.xib in Resources */,
 				EA31448924418E0900C43B77 /* PlayListDetailVC.xib in Resources */,
 				EA5A3D34243D728A002E94D7 /* Poppins-LightItalic.ttf in Resources */,
@@ -916,6 +1107,7 @@
 				EADCFFC4243C57B4005D5502 /* Assets.xcassets in Resources */,
 				EAE612B1243F21E6003BC53C /* GendersVC.xib in Resources */,
 				EADC001E243C5E8B005D5502 /* CoreSansGS45Regular.ttf in Resources */,
+				EA4C3DA12448AEE000C04493 /* SendEmailPP.xib in Resources */,
 				EA5A3D37243D728A002E94D7 /* Poppins-Thin.ttf in Resources */,
 				EAB74018243DBA65007202A9 /* GenderColl.xib in Resources */,
 				EA5A3D39243D728A002E94D7 /* Poppins-Italic.ttf in Resources */,
@@ -928,12 +1120,15 @@
 				EA5A3D2B243D728A002E94D7 /* Poppins-BoldItalic.ttf in Resources */,
 				EA5A3D38243D728A002E94D7 /* Poppins-SemiBold.ttf in Resources */,
 				EA3144942441A7E700C43B77 /* SongItemsCell.xib in Resources */,
+				EA4C3D9C24489E5700C04493 /* SettingXCell.xib in Resources */,
 				EA5A3D05243D019B002E94D7 /* BannerCell.xib in Resources */,
 				EA621C89244040F2005F467C /* PlayList.xcassets in Resources */,
 				EA5A3D29243D728A002E94D7 /* Poppins-ThinItalic.ttf in Resources */,
 				EA5A3D2C243D728A002E94D7 /* Poppins-Light.ttf in Resources */,
 				EADC0002243C5E60005D5502 /* macOS-Info.plist in Resources */,
+				EA4C3D8D24487B6300C04493 /* Setting.xcassets in Resources */,
 				EADC0035243C674F005D5502 /* Tabbar.xcassets in Resources */,
+				EA4C3D972448970700C04493 /* BannerSettingVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -986,9 +1181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4C3DA02448AEE000C04493 /* SendEmailPP.swift in Sources */,
 				EAB7400E243DB863007202A9 /* EnumsHome.swift in Sources */,
 				EAB7402F243E3DED007202A9 /* PlayListModels.swift in Sources */,
 				EADC000B243C5E61005D5502 /* FontAnimation.swift in Sources */,
+				EA76FFD02447613F009EFA39 /* FavoritePopup.swift in Sources */,
 				EA5A3D04243D019B002E94D7 /* BannerCell.swift in Sources */,
 				EADC0007243C5E61005D5502 /* TweeBorderedTextField.swift in Sources */,
 				EAB74033243E5F08007202A9 /* GenresModels.swift in Sources */,
@@ -1000,13 +1197,18 @@
 				EADC0005243C5E61005D5502 /* StringExtension.swift in Sources */,
 				EADCFFDF243C5DDB005D5502 /* UITableView+Extention.swift in Sources */,
 				EADC002E243C616C005D5502 /* PlayListVC.swift in Sources */,
+				EA6AE39F2445A5C700C5A2EC /* SearchModels.swift in Sources */,
+				EA6E1E842444DDD3007FE41B /* PlayListColVC.swift in Sources */,
+				EA6AE3A62445B08D00C5A2EC /* StoragePlayList.swift in Sources */,
 				EADCFFD1243C58F1005D5502 /* AppDelegate+Config.swift in Sources */,
+				EA59AB822442E97B007AFA4C /* PlayerVC.swift in Sources */,
 				EADCFFDD243C5DD5005D5502 /* Application+Extentions.swift in Sources */,
 				EADCFFEB243C5E1E005D5502 /* AppColors.swift in Sources */,
 				EAB74022243DF575007202A9 /* MainListVC.swift in Sources */,
 				EA3144962441BA0900C43B77 /* SongModel.swift in Sources */,
 				EA31448824418E0900C43B77 /* PlayListDetailVC.swift in Sources */,
 				EA31448E2441938000C43B77 /* BannerDetailPLCell.swift in Sources */,
+				EA4C3D8A24487A5D00C04493 /* SettingCell.swift in Sources */,
 				EADC0047243CA60E005D5502 /* DarkNavigationController.swift in Sources */,
 				EADC0024243C6126005D5502 /* HomeVC.swift in Sources */,
 				EA621C8E24405806005F467C /* PlayListCell.swift in Sources */,
@@ -1014,21 +1216,28 @@
 				EADC0000243C5E60005D5502 /* UIColorExtension.swift in Sources */,
 				EA621C972440A782005F467C /* PlayListFSCell.swift in Sources */,
 				EA5A3CFA243CEEB3002E94D7 /* FavoritesVC.swift in Sources */,
+				EA4C3DA42448B0AE00C04493 /* UITextView+extension.swift in Sources */,
 				EAE612AC243F139B003BC53C /* UISegmentedControl+Extension.swift in Sources */,
+				EA6AE3AA2445D6CF00C5A2EC /* AddSongPopup.swift in Sources */,
+				EA4C3D90244883E900C04493 /* SettingEnum.swift in Sources */,
 				EADC0048243CA60E005D5502 /* BaseViewController.swift in Sources */,
 				EA5A3CF3243CD049002E94D7 /* TabbarVC.swift in Sources */,
 				EA5A3CE9243CCAF6002E94D7 /* CBTabBarButton.swift in Sources */,
 				EADC0009243C5E61005D5502 /* TweeAttributedTextField.swift in Sources */,
 				EAE612B0243F21E6003BC53C /* GendersVC.swift in Sources */,
+				EA6AE39C2445A2EF00C5A2EC /* SearchVC.swift in Sources */,
 				EAB74031243E571D007202A9 /* GradientView.swift in Sources */,
 				EA5A3CE8243CCAF6002E94D7 /* BubbleTabBarController.swift in Sources */,
 				EADC0001243C5E60005D5502 /* UIColorInputError.swift in Sources */,
+				EA4C3D9B24489E5700C04493 /* SettingXCell.swift in Sources */,
 				EADCFFDB243C5D18005D5502 /* ViewController+Extention.swift in Sources */,
 				EADC0006243C5E61005D5502 /* TweePlaceholderTextField.swift in Sources */,
 				EADCFFBB243C57AF005D5502 /* AppDelegate.swift in Sources */,
+				EA4C3D962448970700C04493 /* BannerSettingVC.swift in Sources */,
 				EAB74012243DBA44007202A9 /* GenderCell.swift in Sources */,
 				EAB74017243DBA65007202A9 /* GenderColl.swift in Sources */,
 				EADC0029243C6147005D5502 /* SettingVC.swift in Sources */,
+				EA6AE3A32445ABDD00C5A2EC /* PlayListLocalModels.swift in Sources */,
 				EA5A3CE7243CCAF6002E94D7 /* BubbleTabBar.swift in Sources */,
 				EADCFFE1243C5DE2005D5502 /* UICollectionView+Extention.swift in Sources */,
 				EAFA7030243F6369005BB6B8 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
@@ -1179,16 +1388,18 @@
 			baseConfigurationReference = 80F532EF0F5C7D6DF3483A47 /* Pods-prox_iMuzic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUBLSFJH5H;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 374Z27ML26;
 				INFOPLIST_FILE = "$(SRCROOT)/prox_iMuzic/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vivutech.prox-iMuzic";
+				PRODUCT_BUNDLE_IDENTIFIER = com.prox.music;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Music Store";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1199,16 +1410,18 @@
 			baseConfigurationReference = 70913BFDD176EEA5EA505627 /* Pods-prox_iMuzic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DUBLSFJH5H;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 374Z27ML26;
 				INFOPLIST_FILE = "$(SRCROOT)/prox_iMuzic/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vivutech.prox-iMuzic";
+				PRODUCT_BUNDLE_IDENTIFIER = com.prox.music;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Music Store";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

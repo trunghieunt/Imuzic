@@ -25,6 +25,8 @@ class BannerDetailPLCell: UITableViewCell {
     
     @IBOutlet weak var img: UIImageView!
     
+    var playerType: (Bool)->() = {_ in}
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configUI()
@@ -48,7 +50,32 @@ class BannerDetailPLCell: UITableViewCell {
             self.img.image = UIImage(named: "image_thumb")
         }
     }
-
+    func configCell(playList: PlayListLocalModels) {
+        self.titleListPlay.text = playList.title
+        self.channelTitle.text = (playList.songNumber ?? "0") + " songs"
+        self.overView.text = ""
+        
+        if let strUrl = playList.imageUrl {
+            let url = URL(string:strUrl)
+            self.img.kf.setImage(with: url)
+        }else{
+            self.img.image = UIImage(named: "image_thumb")
+        }
+    }
+    
+    func configCell(playList: GenresModels) {
+        self.titleListPlay.text = playList.name
+        self.channelTitle.text = playList.country
+        self.overView.text = ""
+        var image = ["banner_Gender_1", "banner_Gender_2", "banner_Gender_3", "banner_Gender_4"]
+        
+        self.img.image = UIImage(named: image.randomElement() ?? "banner_Gender_1")
+        
+    }
+    
+    
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -62,7 +89,9 @@ class BannerDetailPLCell: UITableViewCell {
         topVC.popViewController()
     }
     @IBAction func actionPlay(_ sender: Any) {
+        self.playerType(true)
     }
     @IBAction func actionRandomPlay(_ sender: Any) {
+        self.playerType(false)
     }
 }

@@ -72,6 +72,16 @@ extension GenderCell: UICollectionViewDataSource{
 }
 
 extension GenderCell: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let topVC = UIApplication.topViewController() else {
+            return
+        }
+        let vc = PlayListDetailVC.loadFromNib()
+        vc.playlist = self.listGenrens[indexPath.row]
+        vc.id = self.listGenrens[indexPath.row].id ?? "1"
+        vc.type = 2
+        topVC.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 

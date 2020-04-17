@@ -39,7 +39,7 @@ class BannerCell: UITableViewCell {
     }
     
     func getListPlaylist() {
-        ImuzicAPIManager.sharedInstance.getListPlaylist(cateID: "1", limit: "7", success: { [weak self](listPlayList) in
+        ImuzicAPIManager.sharedInstance.getListPlaylist(cateID: "1", limit: "5", offset: "0", success: { [weak self](listPlayList) in
             guard let sSelf = self else {return}
             sSelf.listPlayList = listPlayList
             sSelf.pagerView.reloadData()
@@ -62,7 +62,14 @@ class BannerCell: UITableViewCell {
 
 extension BannerCell: FSPagerViewDelegate{
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        
+        guard let topVC = UIApplication.topViewController() else {
+            return
+        }
+        let vc = PlayListDetailVC.loadFromNib()
+        vc.playList = self.listPlayList[index]
+        vc.id = self.listPlayList[index].id ?? "1"
+        vc.type = 0
+        topVC.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

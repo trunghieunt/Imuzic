@@ -14,7 +14,9 @@ class AddPlayListPopup: UIViewController{
     
     @IBOutlet weak var textField: UITextField!
     
+    var reload: ([PlayListLocalModels])->() = {_ in}
     
+    var listPlayList : [PlayListLocalModels] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.returnKeyType = UIReturnKeyType.done
@@ -24,7 +26,15 @@ class AddPlayListPopup: UIViewController{
 
 
     @IBAction func actionOK(_ sender: Any) {
+        if let nameList = self.textField.text{
+            let listPlayer = PlayListLocalModels.init(title: nameList, imageUrl: "", songNumber: "0", songModel: [])
+            self.listPlayList.append(listPlayer)
+            StoragePlayList.sharedInstance.savePlayList(listFavorites: self.listPlayList)
+            self.reload(self.listPlayList)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
+    
     
    
 }

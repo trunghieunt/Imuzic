@@ -48,6 +48,7 @@ extension UIViewController {
         //            indicator.color =
         indicator.center = self.view.center
         indicator.startAnimating()
+        indicator.color = .white
         indicator.hidesWhenStopped = true
         self.view?.addSubview(indicator)
         
