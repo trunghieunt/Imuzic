@@ -7,27 +7,31 @@
 //
 
 import Foundation
+import UIKit
+import AVFoundation
 
 extension AppDelegate {
     
     func configLibrary() {
-
+        
     }
     
-    /// Kiểm tra user đã đăng nhập hay chưa để hiển thị view tương ứng
+    
     func loadDefaultViewController() {
-//        User.shared.loadFromLocal()
-//        if User.shared.isLogged {
-//            let tabbarVC = TabbarVC.loadFromNib()
-//            window?.rootViewController = tabbarVC
-//        } else {
-//            let tabbarVC = LoginVC.loadFromNib()
-//            window?.rootViewController = tabbarVC
-//
         let tabbarVC = TabbarVC.loadFromNib()
         let tabbarNav = DarkNavigationController.init(rootViewController: tabbarVC)
-            window?.rootViewController = tabbarNav
-//        }
+        window?.rootViewController = tabbarNav
     }
+    
+//    func configAVAudioSession() {
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
+//            print("Playback OK")
+//            try AVAudioSession.sharedInstance().setActive(true)
+//            print("Session is Active")
+//        } catch {
+//            print(error)
+//        }
+//    }
 }
 

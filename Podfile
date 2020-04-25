@@ -14,17 +14,11 @@ target 'prox_iMuzic' do
   pod 'PopupDialog'
   
   pod 'SwiftyJSON'
-  pod 'Moya'#, '~> 13.0'
+  pod 'Moya'
   
   pod 'Kingfisher'
   pod 'EmptyDataSet-Swift'
   
-  pod 'IHKeyboardAvoiding'
-  
-  pod 'ViewAnimator'
-  
   pod 'YoutubePlayerView'
-  pod 'RealmSwift'
-  
   
 end

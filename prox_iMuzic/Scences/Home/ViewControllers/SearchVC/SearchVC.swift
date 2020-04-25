@@ -39,14 +39,14 @@ class SearchVC: UIViewController {
         searchBar.delegate = self
         searchBar.addTarget(self, action: #selector(actionSearch), for: .editingChanged)
 
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboards))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
         self.tableView.keyboardDismissMode = .onDrag
     }
     
-    @objc func dismissKeyboard() {
+    @objc func dismissKeyboards() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }

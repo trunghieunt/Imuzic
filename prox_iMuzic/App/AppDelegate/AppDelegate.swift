@@ -15,10 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        configAVAudioSession()
         configLibrary()
         window = UIWindow.init(frame: UIScreen.main.bounds)
         loadDefaultViewController()
         window?.makeKeyAndVisible()
+        
         return true
     }
 

@@ -10,7 +10,6 @@ import UIKit
 import FSPagerView
 import EmptyDataSet_Swift
 import FittedSheets
-import ViewAnimator
 
 class PlayListVC: UIViewController {
     

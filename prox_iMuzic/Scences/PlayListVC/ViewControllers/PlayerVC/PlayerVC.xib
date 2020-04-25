@@ -18,6 +18,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerVC" customModule="prox_iMuzic" customModuleProvider="target">
             <connections>
+                <outlet property="headerHeight" destination="mGb-EO-eBy" id="QYT-qQ-hTi"/>
+                <outlet property="headerPanel" destination="cGz-L5-3TS" id="vML-IV-Rau"/>
                 <outlet property="nameSing" destination="whK-ik-yCS" id="d0Q-tC-DKW"/>
                 <outlet property="nameSong" destination="tgH-Qs-Owm" id="tGd-yi-IDD"/>
                 <outlet property="outletAddFavorite" destination="zN0-9P-9cN" id="muN-xF-R02"/>
@@ -58,7 +60,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SS5-de-lgq">
-                    <rect key="frame" x="11" y="345" width="392" height="60"/>
+                    <rect key="frame" x="11" y="405.33333333333331" width="392" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9rE-bp-wMA">
                             <rect key="frame" x="0.0" y="0.0" width="392" height="60"/>
@@ -111,10 +113,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGz-L5-3TS">
-                    <rect key="frame" x="0.0" y="535" width="414" height="201"/>
+                    <rect key="frame" x="0.0" y="586" width="414" height="150"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lax-5V-ALl">
-                            <rect key="frame" x="0.0" y="60.666666666666629" width="414" height="80"/>
+                            <rect key="frame" x="0.0" y="35" width="414" height="80"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlg-zz-FSC">
                                     <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="80"/>
@@ -132,7 +134,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0H-Xl-Noq">
                                     <rect key="frame" x="165.66666666666666" y="0.0" width="82.666666666666657" height="80"/>
-                                    <state key="normal" image="ic_pause"/>
+                                    <state key="normal" image="ic_play"/>
                                     <connections>
                                         <action selector="actionPlayer:" destination="-1" eventType="touchUpInside" id="83v-RX-ukV"/>
                                     </connections>
@@ -161,15 +163,15 @@
                     <constraints>
                         <constraint firstItem="lax-5V-ALl" firstAttribute="leading" secondItem="cGz-L5-3TS" secondAttribute="leading" id="DZO-5D-OM7"/>
                         <constraint firstItem="lax-5V-ALl" firstAttribute="centerX" secondItem="cGz-L5-3TS" secondAttribute="centerX" id="dcS-wD-XJa"/>
-                        <constraint firstAttribute="height" constant="201" id="mGb-EO-eBy"/>
+                        <constraint firstAttribute="height" constant="150" id="mGb-EO-eBy"/>
                         <constraint firstItem="lax-5V-ALl" firstAttribute="centerY" secondItem="cGz-L5-3TS" secondAttribute="centerY" id="u5n-su-T50"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oA-H0-TrW" customClass="YoutubePlayerView" customModule="YoutubePlayerView">
-                    <rect key="frame" x="0.0" y="107.33333333333333" width="414" height="222.66666666666669"/>
+                    <rect key="frame" x="0.0" y="107.33333333333331" width="414" height="283"/>
                     <color key="backgroundColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="8oA-H0-TrW" secondAttribute="height" multiplier="1170:629" id="ggw-L2-SwW"/>
+                        <constraint firstAttribute="width" secondItem="8oA-H0-TrW" secondAttribute="height" multiplier="1170:800" id="ggw-L2-SwW"/>
                     </constraints>
                 </view>
             </subviews>
@@ -202,7 +204,7 @@
         <image name="ic_back" width="12" height="20"/>
         <image name="ic_like_white" width="24" height="22"/>
         <image name="ic_next" width="28" height="24"/>
-        <image name="ic_pause" width="65" height="64"/>
+        <image name="ic_play" width="65" height="64"/>
         <image name="ic_prev" width="28" height="24"/>
         <image name="ic_repeat" width="28" height="24"/>
         <image name="ic_shufe" width="29" height="24"/>

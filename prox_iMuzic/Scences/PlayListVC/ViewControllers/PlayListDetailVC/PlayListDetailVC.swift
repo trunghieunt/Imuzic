@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import ViewAnimator
 import PullToRefreshKit
 
 class PlayListDetailVC: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
+    
     
     var playlist: GenresModels?
     var playList: PlayListModels?
@@ -30,6 +30,7 @@ class PlayListDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+
         if type == 0{
             configTB()
             getListSong(false)
@@ -40,6 +41,23 @@ class PlayListDetailVC: UIViewController {
             getListSong(false)
         }
     }
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //        // Do any additional setup after loading the view, typically from a nib.
+    //        let newView = UIView()
+    //        newView.frame = CGRect(x:0,y:UIApplication.shared.statusBarFrame.height, width: view.frame.size.width, height: 30)
+    //        newView.backgroundColor = UIColor.red
+    //        let label = UILabel()
+    //        label.frame = newView.bounds
+    //        label.text = "header"
+    //        newView.addSubview(label)
+    //        let vc = PlayListDetailVC.loadFromNib()
+    //
+    //        UIApplication.shared.keyWindow?.addSubview(newView)
+    //
+    //        let bounds = self.navigationController!.navigationBar.bounds
+    //        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: newView.frame.size.height + newView.frame.origin.y, width: bounds.width, height: bounds.height  )
+    //    }
     
     func getListSong(_ loadmore: Bool) {
         
@@ -77,7 +95,7 @@ class PlayListDetailVC: UIViewController {
         self.tableView.registerCell(BannerDetailPLCell.className)
         self.tableView.registerCell(SongItemsCell.className)
         self.tableView.separatorStyle = .none
-
+        
     }
     
     func configTB() {
@@ -113,16 +131,20 @@ extension PlayListDetailVC: UITableViewDataSource{
             }
             
             cellBanner.playerType = {[weak self](isPlay) in
-                let vc = PlayerVC.loadFromNib()
-                print(self!.listSongs.count)
-                vc.listSongs = self!.listSongs
-                
-                if isPlay{
-                    vc.index = 0
+                if self!.listSongs.count != 0{
+                    let vc = PlayerVC.loadFromNib()
+                    vc.listSongs = self!.listSongs
+                    
+                    if isPlay{
+                        vc.index = 0
+                    }else{
+                        vc.index = Int.random(in: 0 ... (self?.listSongs.count)!)
+                    }
+                    self?.navigationController?.present( vc, animated: true, completion: nil)
                 }else{
-                    vc.index = Int.random(in: 0 ... (self?.listSongs.count)!)
+                    self?.showToastAtBottom(message: "No Songs")
                 }
-                self?.navigationController?.present(vc, animated: true, completion: nil)
+               
             }
             
             return cellBanner
@@ -132,7 +154,7 @@ extension PlayListDetailVC: UITableViewDataSource{
             cellItems.selectionStyle = .none
             return cellItems
         }
-
+        
     }
     
     
