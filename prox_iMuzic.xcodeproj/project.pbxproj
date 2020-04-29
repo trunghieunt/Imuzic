@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A087E099B666930EC6370CD /* Pods_prox_iMuzic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E9C67016E733F5D77DF4A /* Pods_prox_iMuzic.framework */; };
+		EA1ED6182458396600DB0A41 /* AVPlayerViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1ED6172458396600DB0A41 /* AVPlayerViewControllerManager.swift */; };
 		EA314483244173C300C43B77 /* SHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA314482244173C300C43B77 /* SHA.swift */; };
 		EA31448824418E0900C43B77 /* PlayListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31448624418E0900C43B77 /* PlayListDetailVC.swift */; };
 		EA31448924418E0900C43B77 /* PlayListDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA31448724418E0900C43B77 /* PlayListDetailVC.xib */; };
@@ -150,6 +151,7 @@
 		2B3E9C67016E733F5D77DF4A /* Pods_prox_iMuzic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_prox_iMuzic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70913BFDD176EEA5EA505627 /* Pods-prox_iMuzic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prox_iMuzic.release.xcconfig"; path = "Target Support Files/Pods-prox_iMuzic/Pods-prox_iMuzic.release.xcconfig"; sourceTree = "<group>"; };
 		80F532EF0F5C7D6DF3483A47 /* Pods-prox_iMuzic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prox_iMuzic.debug.xcconfig"; path = "Target Support Files/Pods-prox_iMuzic/Pods-prox_iMuzic.debug.xcconfig"; sourceTree = "<group>"; };
+		EA1ED6172458396600DB0A41 /* AVPlayerViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerViewControllerManager.swift; sourceTree = "<group>"; };
 		EA314482244173C300C43B77 /* SHA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA.swift; sourceTree = "<group>"; };
 		EA31448624418E0900C43B77 /* PlayListDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListDetailVC.swift; sourceTree = "<group>"; };
 		EA31448724418E0900C43B77 /* PlayListDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayListDetailVC.xib; sourceTree = "<group>"; };
@@ -318,6 +320,14 @@
 				70913BFDD176EEA5EA505627 /* Pods-prox_iMuzic.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EA1ED6162458395F00DB0A41 /* AVPlayerViewControllerManager */ = {
+			isa = PBXGroup;
+			children = (
+				EA1ED6172458396600DB0A41 /* AVPlayerViewControllerManager.swift */,
+			);
+			path = AVPlayerViewControllerManager;
 			sourceTree = "<group>";
 		};
 		EA314481244173B900C43B77 /* SHA */ = {
@@ -834,6 +844,7 @@
 		EADC0043243CA60D005D5502 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				EA1ED6162458395F00DB0A41 /* AVPlayerViewControllerManager */,
 				EA314481244173B900C43B77 /* SHA */,
 				EA621CAD2440D691005F467C /* LeftAlignedCollection */,
 				EA621CAC2440D680005F467C /* Base */,
@@ -1209,6 +1220,7 @@
 				EA31448824418E0900C43B77 /* PlayListDetailVC.swift in Sources */,
 				EA31448E2441938000C43B77 /* BannerDetailPLCell.swift in Sources */,
 				EA4C3D8A24487A5D00C04493 /* SettingCell.swift in Sources */,
+				EA1ED6182458396600DB0A41 /* AVPlayerViewControllerManager.swift in Sources */,
 				EADC0047243CA60E005D5502 /* DarkNavigationController.swift in Sources */,
 				EADC0024243C6126005D5502 /* HomeVC.swift in Sources */,
 				EA621C8E24405806005F467C /* PlayListCell.swift in Sources */,

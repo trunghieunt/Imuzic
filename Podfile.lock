@@ -18,6 +18,7 @@ PODS:
   - Result (4.1.0)
   - SwiftyJSON (5.0.0)
   - Toast-Swift (5.0.1)
+  - XCDYouTubeKit (2.12.0)
   - YoutubePlayerView (1.2.1)
 
 DEPENDENCIES:
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - PullToRefreshKit
   - SwiftyJSON
   - Toast-Swift
+  - XCDYouTubeKit (~> 2.8)
   - YoutubePlayerView
 
 SPEC REPOS:
@@ -50,6 +52,7 @@ SPEC REPOS:
     - Result
     - SwiftyJSON
     - Toast-Swift
+    - XCDYouTubeKit
     - YoutubePlayerView
 
 SPEC CHECKSUMS:
@@ -67,8 +70,9 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  XCDYouTubeKit: cdad9e696f991aac2739c5b25586c81f1301ba30
   YoutubePlayerView: 3870fc10f2db3f54156697757f44d304203bdc7e
 
-PODFILE CHECKSUM: d9d8ca26e3f6e619bbb4cdcfe150407a6ed81aa1
+PODFILE CHECKSUM: 20579ac8d5c2ff072bd19b13ee0444a8dc0253fe
 
 COCOAPODS: 1.9.1

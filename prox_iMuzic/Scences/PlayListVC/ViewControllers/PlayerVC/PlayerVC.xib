@@ -18,17 +18,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerVC" customModule="prox_iMuzic" customModuleProvider="target">
             <connections>
-                <outlet property="headerHeight" destination="mGb-EO-eBy" id="QYT-qQ-hTi"/>
-                <outlet property="headerPanel" destination="cGz-L5-3TS" id="vML-IV-Rau"/>
                 <outlet property="nameSing" destination="whK-ik-yCS" id="d0Q-tC-DKW"/>
                 <outlet property="nameSong" destination="tgH-Qs-Owm" id="tGd-yi-IDD"/>
                 <outlet property="outletAddFavorite" destination="zN0-9P-9cN" id="muN-xF-R02"/>
                 <outlet property="outletPlayBtn" destination="t0H-Xl-Noq" id="28S-ci-vpL"/>
                 <outlet property="outletRepeatBtn" destination="Dlg-zz-FSC" id="doe-pn-i1J"/>
                 <outlet property="outletShufeBtn" destination="2e7-7G-WXE" id="nM3-uc-XcT"/>
+                <outlet property="playerContainer" destination="8dw-Wc-uC9" id="AW0-sS-Xol"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewRight" destination="SS5-de-lgq" id="n3o-Qh-x1w"/>
-                <outlet property="youtubeView" destination="8oA-H0-TrW" id="B8z-We-FJt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -167,29 +165,29 @@
                         <constraint firstItem="lax-5V-ALl" firstAttribute="centerY" secondItem="cGz-L5-3TS" secondAttribute="centerY" id="u5n-su-T50"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oA-H0-TrW" customClass="YoutubePlayerView" customModule="YoutubePlayerView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-Wc-uC9">
                     <rect key="frame" x="0.0" y="107.33333333333331" width="414" height="283"/>
-                    <color key="backgroundColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="8oA-H0-TrW" secondAttribute="height" multiplier="1170:800" id="ggw-L2-SwW"/>
+                        <constraint firstAttribute="width" secondItem="8dw-Wc-uC9" secondAttribute="height" multiplier="1170:800" id="nBw-4i-Utl"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="8dw-Wc-uC9" firstAttribute="top" secondItem="whK-ik-yCS" secondAttribute="bottom" constant="19" id="0CB-GE-k1r"/>
                 <constraint firstItem="cGz-L5-3TS" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="2Qe-GI-Pgd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="whK-ik-yCS" secondAttribute="trailing" constant="80" id="43o-sz-bUx"/>
+                <constraint firstItem="SS5-de-lgq" firstAttribute="top" secondItem="8dw-Wc-uC9" secondAttribute="bottom" constant="15" id="63R-gk-rl0"/>
                 <constraint firstItem="SS5-de-lgq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9EZ-g9-gcA"/>
+                <constraint firstItem="8dw-Wc-uC9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Aug-Vw-qrd"/>
                 <constraint firstItem="whK-ik-yCS" firstAttribute="leading" secondItem="tgH-Qs-Owm" secondAttribute="leading" id="Cyz-uY-AsK"/>
                 <constraint firstItem="cGz-L5-3TS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="J6z-lo-Pxw"/>
-                <constraint firstItem="8oA-H0-TrW" firstAttribute="top" secondItem="whK-ik-yCS" secondAttribute="bottom" constant="19" id="KZR-Dt-xsf"/>
-                <constraint firstItem="8oA-H0-TrW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="U9E-Nf-YLC"/>
                 <constraint firstItem="tgH-Qs-Owm" firstAttribute="leading" secondItem="Gzk-0m-KXX" secondAttribute="trailing" constant="-8" id="XIG-oq-4it"/>
                 <constraint firstItem="Gzk-0m-KXX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gGO-le-j40"/>
                 <constraint firstItem="cGz-L5-3TS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="h26-ax-5jv"/>
-                <constraint firstItem="8oA-H0-TrW" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="igU-aR-Qk6"/>
-                <constraint firstItem="SS5-de-lgq" firstAttribute="top" secondItem="8oA-H0-TrW" secondAttribute="bottom" constant="15" id="m1X-7S-w4A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tgH-Qs-Owm" secondAttribute="trailing" id="tIn-3B-IoZ"/>
+                <constraint firstItem="8dw-Wc-uC9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="thv-Jc-tbs"/>
                 <constraint firstItem="tgH-Qs-Owm" firstAttribute="centerY" secondItem="Gzk-0m-KXX" secondAttribute="centerY" constant="-1" id="u7C-g0-iWV"/>
                 <constraint firstItem="whK-ik-yCS" firstAttribute="top" secondItem="tgH-Qs-Owm" secondAttribute="bottom" id="v8w-QY-QWx"/>
                 <constraint firstItem="Gzk-0m-KXX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="xdo-FB-fdj"/>

@@ -10,6 +10,14 @@
 import UIKit
 import YoutubePlayerView
 import FittedSheets
+import XCDYouTubeKit
+
+enum ActionType: String {
+    case none = "none"
+    case play = "play"
+    case add = "add"
+    case playAndAdd = "playAndAdd"
+}
 
 class PlayerVC: UIViewController {
     
@@ -27,11 +35,7 @@ class PlayerVC: UIViewController {
     
     @IBOutlet weak var outletShufeBtn: UIButton!
     
-    @IBOutlet weak var youtubeView: YoutubePlayerView!
-    
-    @IBOutlet weak var headerPanel: UIView!
-    
-    @IBOutlet weak var headerHeight: NSLayoutConstraint!
+    @IBOutlet weak var playerContainer: UIView!
     
     var youtubePlay = true
     var listSongs : [SongModel] = []
@@ -40,32 +44,55 @@ class PlayerVC: UIViewController {
     var index = 0
     var typePlayer = false
     
-    
-    
-    let playerVars: [String: Any] = [
-        "controls": 1,
-        "modestbranding": 1,
-        "playsinline": 1,
-        "origin": "https://youtube.com"
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(PlayerVC.playInBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PlayerVC.playForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playerDidFinishPlaying),
+                                               name: .AVPlayerItemDidPlayToEndTime,
+                                               object: nil)
         configUI()
         configPlayer()
+        setupPlayer()
         getFavorite(self.listSongs[index].id ?? "0")
     }
     
-    @objc func playInBackground(){
-//        self.youtubeView = nil
+    @objc func playForeground(){
+        AVPlayerViewControllerManager.shared.reconnectPlayer(rootViewController: self)
+    }
+    
+    @objc func playerDidFinishPlaying(){
+        AVPlayerViewControllerManager.shared.player?.pause()
+        if typePlayer == false{
+            self.index += 1
+            self.nameSing.text = self.listSongs[index].artist
+            self.nameSong.text = self.listSongs[index].title
+        }
+    
+        if let youtubeId = self.listSongs[index].youtubeId{
+
+            getStreamingLink(youtubeId, .playAndAdd)
+        }
+        getFavorite(self.listSongs[index].id ?? "0")
+        
+    }
+    
+    
+    func setupPlayer(){
+        let playerViewController = AVPlayerViewControllerManager.shared.controller
+        playerViewController.view.frame = playerContainer.bounds
+        addChild(playerViewController)
+        playerContainer.addSubview(playerViewController.view)
+        playerViewController.didMove(toParent: self)
+        
     }
     
     func configPlayer() {
-        youtubeView.loadWithVideoId(listSongs[index].youtubeId!, with: playerVars)
-        youtubeView.seek(to: 1.6, allowSeekAhead: true)
-        youtubeView.delegate = self
+        
+        if let youtubeId = self.listSongs[index].youtubeId{
+            getStreamingLink(youtubeId, .playAndAdd)
+        }
     }
     
     func configUI() {
@@ -74,6 +101,8 @@ class PlayerVC: UIViewController {
         self.nameSong.text = self.listSongs[index].title
         self.typePlayer(repeated: true)
     }
+    
+    
     
     func getFavorite(_ id: String) {
         StoragePlayList.sharedInstance.loadFavorites { (listSongs) in
@@ -87,6 +116,35 @@ class PlayerVC: UIViewController {
         }
     }
     
+    
+    func getStreamingLink(_ link: String, _ action:ActionType){
+        
+        
+        XCDYouTubeClient.default().getVideoWithIdentifier(link) { [weak self] (video, error ) in
+            
+            guard let sSelf = self else {return}
+            
+            if let er = error {
+                
+                let alertVC = UIAlertController(title: "Error", message: er.localizedDescription, preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alertVC.addAction(cancelAction)
+                sSelf.present(alertVC, animated: true, completion: nil)
+            } else if let video = video {
+                
+                if action == .play || action == .playAndAdd{
+                    
+                    AVPlayerViewControllerManager.shared.video = video
+                    
+                    AVPlayerViewControllerManager.shared.player?.play()
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
     
     @IBAction func actionAddFavorite(_ sender: Any) {
         let results = listSongFavorites.filter{$0.id == self.listSongs[index].id}
@@ -136,7 +194,7 @@ class PlayerVC: UIViewController {
     @IBAction func actionShufe(_ sender: Any) {
         self.typePlayer(repeated: false)
     }
-
+    
     
     func typePlayer(repeated: Bool) {
         if repeated{
@@ -153,36 +211,43 @@ class PlayerVC: UIViewController {
     @IBAction func actionPlayer(_ sender: Any) {
         if youtubePlay{
             self.outletPlayBtn.setImage(UIImage(named: "ic_pause"), for: .normal)
-            self.youtubeView.pause()
+            AVPlayerViewControllerManager.shared.player?.pause()
             self.youtubePlay = false
         }else{
             self.outletPlayBtn.setImage(UIImage(named: "ic_play"), for: .normal)
-            self.youtubeView.play()
+            AVPlayerViewControllerManager.shared.player?.play()
             self.youtubePlay = true
         }
         
     }
     
     @IBAction func actionNext(_ sender: Any) {
+        AVPlayerViewControllerManager.shared.player?.pause()
         if index == self.listSongs.count - 1{
             self.popViewController()
         }else{
             self.index += 1
             self.nameSing.text = self.listSongs[index].artist
             self.nameSong.text = self.listSongs[index].title
-            youtubeView.loadWithVideoId(listSongs[index].youtubeId!, with: playerVars)
+            
+            if let youtubeId = self.listSongs[index].youtubeId{
+                getStreamingLink(youtubeId, .play)
+            }
             getFavorite(self.listSongs[index].id ?? "0")
         }
     }
     
     @IBAction func actionPrev(_ sender: Any) {
+        AVPlayerViewControllerManager.shared.player?.pause()
         if index == 0{
             self.popViewController()
         }else{
             self.index -= 1
             self.nameSing.text = self.listSongs[index].artist
             self.nameSong.text = self.listSongs[index].title
-            youtubeView.loadWithVideoId(listSongs[index].youtubeId!, with: playerVars)
+            if let youtubeId = self.listSongs[index].youtubeId{
+                getStreamingLink(youtubeId, .play)
+            }
             getFavorite(self.listSongs[index].id ?? "0")
         }
     }
@@ -195,38 +260,13 @@ class PlayerVC: UIViewController {
     
 }
 
-extension PlayerVC: YoutubePlayerViewDelegate{
-    func playerViewDidBecomeReady(_ playerView: YoutubePlayerView) {
-        playerView.play()
-    }
-    func playerView(_ playerView: YoutubePlayerView, didChangedToState state: YoutubePlayerState) {
-        if state == .ended{
-            if typePlayer == false{
-                self.index += 1
-                self.nameSing.text = self.listSongs[index].artist
-                self.nameSong.text = self.listSongs[index].title
-            }
-            playerView.loadWithVideoId(listSongs[index].youtubeId!, with: playerVars)
-            getFavorite(self.listSongs[index].id ?? "0")
-        }
-        if state == .paused{
-            
-            self.outletPlayBtn.setImage(UIImage(named: "ic_pause"), for: .normal)
-            self.youtubePlay = false
-        }
-        if state == .unstarted{
-            
-        }
-        if state == .playing{
-            self.outletPlayBtn.setImage(UIImage(named: "ic_play"), for: .normal)
-            self.youtubePlay = true
-        }
-    }
-    
-    func playerViewPreferredInitialLoadingView(_ playerView: YoutubePlayerView) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = AppColors.osloGray
-        return view
-    }
-    
-}
+
+//if state == .paused{
+//
+//    self.outletPlayBtn.setImage(UIImage(named: "ic_pause"), for: .normal)
+//    self.youtubePlay = false
+//}
+//if state == .playing{
+//    self.outletPlayBtn.setImage(UIImage(named: "ic_play"), for: .normal)
+//    self.youtubePlay = true
+//}
