@@ -41,23 +41,7 @@ class PlayListDetailVC: UIViewController {
             getListSong(false)
         }
     }
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        super.viewDidAppear(animated)
-    //        // Do any additional setup after loading the view, typically from a nib.
-    //        let newView = UIView()
-    //        newView.frame = CGRect(x:0,y:UIApplication.shared.statusBarFrame.height, width: view.frame.size.width, height: 30)
-    //        newView.backgroundColor = UIColor.red
-    //        let label = UILabel()
-    //        label.frame = newView.bounds
-    //        label.text = "header"
-    //        newView.addSubview(label)
-    //        let vc = PlayListDetailVC.loadFromNib()
-    //
-    //        UIApplication.shared.keyWindow?.addSubview(newView)
-    //
-    //        let bounds = self.navigationController!.navigationBar.bounds
-    //        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: newView.frame.size.height + newView.frame.origin.y, width: bounds.width, height: bounds.height  )
-    //    }
+
     
     func getListSong(_ loadmore: Bool) {
         

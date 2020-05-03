@@ -8,7 +8,6 @@
 
 
 import UIKit
-import YoutubePlayerView
 import FittedSheets
 import XCDYouTubeKit
 
@@ -69,9 +68,9 @@ class PlayerVC: UIViewController {
             self.nameSing.text = self.listSongs[index].artist
             self.nameSong.text = self.listSongs[index].title
         }
-    
+        
         if let youtubeId = self.listSongs[index].youtubeId{
-
+            
             getStreamingLink(youtubeId, .playAndAdd)
         }
         getFavorite(self.listSongs[index].id ?? "0")
@@ -118,11 +117,13 @@ class PlayerVC: UIViewController {
     
     
     func getStreamingLink(_ link: String, _ action:ActionType){
-        
+        self.showLoadingIndicator()
         
         XCDYouTubeClient.default().getVideoWithIdentifier(link) { [weak self] (video, error ) in
             
             guard let sSelf = self else {return}
+            
+            sSelf.hideLoadingIndicator()
             
             if let er = error {
                 
@@ -223,6 +224,7 @@ class PlayerVC: UIViewController {
     
     @IBAction func actionNext(_ sender: Any) {
         AVPlayerViewControllerManager.shared.player?.pause()
+        AVPlayerViewControllerManager.shared.video = nil
         if index == self.listSongs.count - 1{
             self.popViewController()
         }else{
@@ -239,6 +241,7 @@ class PlayerVC: UIViewController {
     
     @IBAction func actionPrev(_ sender: Any) {
         AVPlayerViewControllerManager.shared.player?.pause()
+        AVPlayerViewControllerManager.shared.video = nil
         if index == 0{
             self.popViewController()
         }else{
@@ -253,7 +256,11 @@ class PlayerVC: UIViewController {
     }
     
     @IBAction func actionBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            AVPlayerViewControllerManager.shared.player?.pause()
+            AVPlayerViewControllerManager.shared.video = nil
+        }
+        
     }
     
     
