@@ -36,6 +36,21 @@ class PlayerVC: UIViewController {
     
     @IBOutlet weak var playerContainer: UIView!
     
+    @IBOutlet weak var playerHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var playerMiniHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var imgSong: UIImageView!
+    
+    @IBOutlet weak var songMiniPlayer: UILabel!
+    
+    @IBOutlet weak var SingerMiniPlayer: UILabel!
+    
+    @IBOutlet weak var viewPlayer: UIView!
+    
+    @IBOutlet weak var miniPlayer: UIView!
+    
+    var viewControllerHeight : CGRect?
     var youtubePlay = true
     var listSongs : [SongModel] = []
     var listSongFavorites: [SongModel] = []
@@ -55,6 +70,12 @@ class PlayerVC: UIViewController {
         configPlayer()
         setupPlayer()
         getFavorite(self.listSongs[index].id ?? "0")
+        showMiniPlayer()
+    }
+    
+    func showMiniPlayer(){
+        self.playerHeight.constant = 0
+        self.viewPlayer.alpha = 0
     }
     
     @objc func playForeground(){
@@ -67,6 +88,8 @@ class PlayerVC: UIViewController {
             self.index += 1
             self.nameSing.text = self.listSongs[index].artist
             self.nameSong.text = self.listSongs[index].title
+            self.SingerMiniPlayer.text = self.listSongs[index].artist
+            self.songMiniPlayer.text = self.listSongs[index].title
         }
         
         if let youtubeId = self.listSongs[index].youtubeId{
@@ -95,9 +118,14 @@ class PlayerVC: UIViewController {
     }
     
     func configUI() {
+//        self.viewPlayer.isHidden = true
+        self.imgSong.layer.cornerRadius = 15
+        self.miniPlayer.layer.cornerRadius = 20
         self.viewRight.layer.cornerRadius = 13
         self.nameSing.text = self.listSongs[index].artist
         self.nameSong.text = self.listSongs[index].title
+        self.SingerMiniPlayer.text = self.listSongs[index].artist
+        self.songMiniPlayer.text = self.listSongs[index].title
         self.typePlayer(repeated: true)
     }
     
@@ -119,18 +147,15 @@ class PlayerVC: UIViewController {
     func getStreamingLink(_ link: String, _ action:ActionType){
         self.showLoadingIndicator()
         
-        XCDYouTubeClient.default().getVideoWithIdentifier(link) { [weak self] (video, error ) in
-            
-            guard let sSelf = self else {return}
-            
-            sSelf.hideLoadingIndicator()
+        XCDYouTubeClient.default().getVideoWithIdentifier(link) {(video, error ) in
+            self.hideLoadingIndicator()
             
             if let er = error {
                 
                 let alertVC = UIAlertController(title: "Error", message: er.localizedDescription, preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                 alertVC.addAction(cancelAction)
-                sSelf.present(alertVC, animated: true, completion: nil)
+                self.present(alertVC, animated: true, completion: nil)
             } else if let video = video {
                 
                 if action == .play || action == .playAndAdd{
@@ -145,6 +170,36 @@ class PlayerVC: UIViewController {
             
         }
         
+    }
+    @IBAction func showMainPlayer(_ sender: Any) {
+        
+         let window = UIApplication.shared.keyWindow
+         var topPadding : CGFloat = 0
+         var bottomPadding : CGFloat = 0
+         
+         if #available(iOS 11.0, *) {
+             topPadding = window?.safeAreaInsets.top ?? 0
+             bottomPadding = window?.safeAreaInsets.bottom ?? 0
+         } else {
+            // Fallback on earlier versions
+        }
+        
+        UIView.animate(withDuration: 1, animations: {
+            
+        }, completion: nil)
+        UIView.animate(withDuration: 1, animations: {
+            self.view.frame = self.viewControllerHeight ?? UIScreen.main.bounds
+            if #available(iOS 11.0, *) {
+                self.playerHeight.constant = self.view.frame.size.height - topPadding - bottomPadding
+            } else {
+                self.playerHeight.constant = self.view.bounds.height
+            }
+            self.viewPlayer.alpha = 1
+            
+            self.miniPlayer.alpha = 0
+        }) { (true) in
+            self.playerMiniHeight.constant = 0
+        }
     }
     
     @IBAction func actionAddFavorite(_ sender: Any) {
@@ -221,7 +276,9 @@ class PlayerVC: UIViewController {
         }
         
     }
-    
+    func add(){
+        print("a")
+    }
     @IBAction func actionNext(_ sender: Any) {
         AVPlayerViewControllerManager.shared.player?.pause()
         AVPlayerViewControllerManager.shared.video = nil
@@ -231,6 +288,8 @@ class PlayerVC: UIViewController {
             self.index += 1
             self.nameSing.text = self.listSongs[index].artist
             self.nameSong.text = self.listSongs[index].title
+            self.SingerMiniPlayer.text = self.listSongs[index].artist
+            self.songMiniPlayer.text = self.listSongs[index].title
             
             if let youtubeId = self.listSongs[index].youtubeId{
                 getStreamingLink(youtubeId, .play)
@@ -248,6 +307,8 @@ class PlayerVC: UIViewController {
             self.index -= 1
             self.nameSing.text = self.listSongs[index].artist
             self.nameSong.text = self.listSongs[index].title
+            self.SingerMiniPlayer.text = self.listSongs[index].artist
+            self.songMiniPlayer.text = self.listSongs[index].title
             if let youtubeId = self.listSongs[index].youtubeId{
                 getStreamingLink(youtubeId, .play)
             }
@@ -256,24 +317,22 @@ class PlayerVC: UIViewController {
     }
     
     @IBAction func actionBack(_ sender: Any) {
-        self.dismiss(animated: true) {
-            AVPlayerViewControllerManager.shared.player?.pause()
-            AVPlayerViewControllerManager.shared.video = nil
-        }
+        UIView.animate(withDuration: 1, animations: {
+            
+        }, completion: nil)
         
+        UIView.animate(withDuration: 1, animations: {
+            self.view.frame = CGRect(x: 0, y: self.view.frame.height - 100, width: self.view.bounds.width, height: 50)
+            
+            self.viewPlayer.alpha = 0
+            
+            self.miniPlayer.alpha = 1
+            self.playerMiniHeight.constant = 60
+        }) { (true) in
+            self.playerHeight.constant = 0
+        }
     }
     
     
     
 }
-
-
-//if state == .paused{
-//
-//    self.outletPlayBtn.setImage(UIImage(named: "ic_pause"), for: .normal)
-//    self.youtubePlay = false
-//}
-//if state == .playing{
-//    self.outletPlayBtn.setImage(UIImage(named: "ic_play"), for: .normal)
-//    self.youtubePlay = true
-//}

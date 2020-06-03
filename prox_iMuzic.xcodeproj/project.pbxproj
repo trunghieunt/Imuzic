@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		4A087E099B666930EC6370CD /* Pods_prox_iMuzic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E9C67016E733F5D77DF4A /* Pods_prox_iMuzic.framework */; };
 		EA1ED6182458396600DB0A41 /* AVPlayerViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1ED6172458396600DB0A41 /* AVPlayerViewControllerManager.swift */; };
-		EA2499D0245BD07900BDF9AD /* YoutubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2499CE245BD07900BDF9AD /* YoutubePlayer.swift */; };
-		EA2499D1245BD07900BDF9AD /* YoutubePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA2499CF245BD07900BDF9AD /* YoutubePlayer.xib */; };
 		EA314483244173C300C43B77 /* SHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA314482244173C300C43B77 /* SHA.swift */; };
 		EA31448824418E0900C43B77 /* PlayListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31448624418E0900C43B77 /* PlayListDetailVC.swift */; };
 		EA31448924418E0900C43B77 /* PlayListDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA31448724418E0900C43B77 /* PlayListDetailVC.xib */; };
@@ -30,6 +28,8 @@
 		EA4C3DA02448AEE000C04493 /* SendEmailPP.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3D9E2448AEE000C04493 /* SendEmailPP.swift */; };
 		EA4C3DA12448AEE000C04493 /* SendEmailPP.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4C3D9F2448AEE000C04493 /* SendEmailPP.xib */; };
 		EA4C3DA42448B0AE00C04493 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3DA32448B0AE00C04493 /* UITextView+extension.swift */; };
+		EA4CA8A22470F9D30095A816 /* YoutubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4CA8A02470F9D30095A816 /* YoutubePlayer.swift */; };
+		EA4CA8A32470F9D30095A816 /* YoutubePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4CA8A12470F9D30095A816 /* YoutubePlayer.xib */; };
 		EA59AB822442E97B007AFA4C /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59AB802442E97B007AFA4C /* PlayerVC.swift */; };
 		EA59AB832442E97B007AFA4C /* PlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA59AB812442E97B007AFA4C /* PlayerVC.xib */; };
 		EA5A3CE7243CCAF6002E94D7 /* BubbleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5A3CE4243CCAF6002E94D7 /* BubbleTabBar.swift */; };
@@ -154,8 +154,6 @@
 		70913BFDD176EEA5EA505627 /* Pods-prox_iMuzic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prox_iMuzic.release.xcconfig"; path = "Target Support Files/Pods-prox_iMuzic/Pods-prox_iMuzic.release.xcconfig"; sourceTree = "<group>"; };
 		80F532EF0F5C7D6DF3483A47 /* Pods-prox_iMuzic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prox_iMuzic.debug.xcconfig"; path = "Target Support Files/Pods-prox_iMuzic/Pods-prox_iMuzic.debug.xcconfig"; sourceTree = "<group>"; };
 		EA1ED6172458396600DB0A41 /* AVPlayerViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerViewControllerManager.swift; sourceTree = "<group>"; };
-		EA2499CE245BD07900BDF9AD /* YoutubePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayer.swift; sourceTree = "<group>"; };
-		EA2499CF245BD07900BDF9AD /* YoutubePlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubePlayer.xib; sourceTree = "<group>"; };
 		EA314482244173C300C43B77 /* SHA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA.swift; sourceTree = "<group>"; };
 		EA31448624418E0900C43B77 /* PlayListDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListDetailVC.swift; sourceTree = "<group>"; };
 		EA31448724418E0900C43B77 /* PlayListDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayListDetailVC.xib; sourceTree = "<group>"; };
@@ -175,6 +173,8 @@
 		EA4C3D9E2448AEE000C04493 /* SendEmailPP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendEmailPP.swift; sourceTree = "<group>"; };
 		EA4C3D9F2448AEE000C04493 /* SendEmailPP.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendEmailPP.xib; sourceTree = "<group>"; };
 		EA4C3DA32448B0AE00C04493 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
+		EA4CA8A02470F9D30095A816 /* YoutubePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayer.swift; sourceTree = "<group>"; };
+		EA4CA8A12470F9D30095A816 /* YoutubePlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubePlayer.xib; sourceTree = "<group>"; };
 		EA59AB802442E97B007AFA4C /* PlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
 		EA59AB812442E97B007AFA4C /* PlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerVC.xib; sourceTree = "<group>"; };
 		EA5A3CE4243CCAF6002E94D7 /* BubbleTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBar.swift; sourceTree = "<group>"; };
@@ -337,8 +337,8 @@
 		EA2499CB245BCF2D00BDF9AD /* YoutubePlayer */ = {
 			isa = PBXGroup;
 			children = (
-				EA2499CE245BD07900BDF9AD /* YoutubePlayer.swift */,
-				EA2499CF245BD07900BDF9AD /* YoutubePlayer.xib */,
+				EA4CA8A02470F9D30095A816 /* YoutubePlayer.swift */,
+				EA4CA8A12470F9D30095A816 /* YoutubePlayer.xib */,
 			);
 			path = YoutubePlayer;
 			sourceTree = "<group>";
@@ -1145,7 +1145,7 @@
 				EA5A3D2B243D728A002E94D7 /* Poppins-BoldItalic.ttf in Resources */,
 				EA5A3D38243D728A002E94D7 /* Poppins-SemiBold.ttf in Resources */,
 				EA3144942441A7E700C43B77 /* SongItemsCell.xib in Resources */,
-				EA2499D1245BD07900BDF9AD /* YoutubePlayer.xib in Resources */,
+				EA4CA8A32470F9D30095A816 /* YoutubePlayer.xib in Resources */,
 				EA4C3D9C24489E5700C04493 /* SettingXCell.xib in Resources */,
 				EA5A3D05243D019B002E94D7 /* BannerCell.xib in Resources */,
 				EA621C89244040F2005F467C /* PlayList.xcassets in Resources */,
@@ -1253,7 +1253,7 @@
 				EADC0009243C5E61005D5502 /* TweeAttributedTextField.swift in Sources */,
 				EAE612B0243F21E6003BC53C /* GendersVC.swift in Sources */,
 				EA6AE39C2445A2EF00C5A2EC /* SearchVC.swift in Sources */,
-				EA2499D0245BD07900BDF9AD /* YoutubePlayer.swift in Sources */,
+				EA4CA8A22470F9D30095A816 /* YoutubePlayer.swift in Sources */,
 				EAB74031243E571D007202A9 /* GradientView.swift in Sources */,
 				EA5A3CE8243CCAF6002E94D7 /* BubbleTabBarController.swift in Sources */,
 				EADC0001243C5E60005D5502 /* UIColorInputError.swift in Sources */,
@@ -1418,7 +1418,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 374Z27ML26;
 				INFOPLIST_FILE = "$(SRCROOT)/prox_iMuzic/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1441,7 +1441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 374Z27ML26;
 				INFOPLIST_FILE = "$(SRCROOT)/prox_iMuzic/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;

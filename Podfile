@@ -19,6 +19,6 @@ target 'prox_iMuzic' do
   pod 'Kingfisher'
   pod 'EmptyDataSet-Swift'
   
-  pod "XCDYouTubeKit", "~> 2.8"
+  pod "XCDYouTubeKit"
   
 end

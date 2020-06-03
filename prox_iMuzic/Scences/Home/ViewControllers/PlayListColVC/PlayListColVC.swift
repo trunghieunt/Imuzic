@@ -81,7 +81,7 @@ extension PlayListColVC: UICollectionViewDelegate{
         }
         let vc = PlayListDetailVC.loadFromNib()
         vc.playList = self.listPlayList[indexPath.row]
-        vc.id = self.listPlayList[indexPath.row].id ?? "1"
+        vc.id = self.listPlayList[indexPath.row].playlistId ?? "1"
         vc.type = 0
         topVC.navigationController?.pushViewController(vc, animated: true)
     }

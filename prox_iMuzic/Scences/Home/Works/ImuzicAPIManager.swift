@@ -98,6 +98,7 @@ struct ImuzicAPIManager {
             case .success(let value):
                 do {
                     let json = try JSON.init(data: value.data)
+                    print(json)
                     let results = json["Imuzic"]["Items"].arrayValue
                     let countSong = json["Imuzic"]["TotalSongs"].int
                     for result in results{

@@ -67,8 +67,9 @@ extension BannerCell: FSPagerViewDelegate{
         }
         let vc = PlayListDetailVC.loadFromNib()
         vc.playList = self.listPlayList[index]
-        vc.id = self.listPlayList[index].id ?? "1"
+        vc.id = self.listPlayList[index].playlistId ?? "1"
         vc.type = 0
+        vc.hidesBottomBarWhenPushed = false
         topVC.navigationController?.pushViewController(vc, animated: true)
     }
     

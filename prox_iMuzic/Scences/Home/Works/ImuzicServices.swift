@@ -31,8 +31,12 @@ extension ImuzicServices: TargetType {
             return URL.init(string:"http://mapgo2animez.ga/api/imuzic/getListPlaylist")!
         case .getAllGenres:
             return URL.init(string:"http://mapgo2animez.ga/api/imuzic/getListGenres")!
-        case .getAllSongs(_):
-            return URL.init(string: "http://mapgo2animez.ga/api/imuzic/getListVideo")!
+        case .getAllSongs(let subCateId, _, _):
+            if subCateId.isNumber{
+                return URL.init(string: "http://mapgo2animez.ga/api/imuzic/getListVideo")!
+            }else{
+                return URL.init(string: "http://mapgo2animez.ga/api/imuzic/getListVideoWithPlaylistId")!
+            }
         case .getListFree:
             return URL.init(string: "http://mapgo2animez.ga/api/imuzic/getListFree")!
         case .getSearch(_):
@@ -84,11 +88,20 @@ extension ImuzicServices: TargetType {
         case .getAllGenres:
             break
         case .getAllSongs(let subCateId, let limit, let offset):
-            param["subCateId"] = subCateId
-            param["limit"] = limit
-            param["offset"] = offset
-            let token = "http://mapgo2animez.ga/api/imuzic/getListVideo?limit=\(limit)&offset=\(offset)&subCateId=\(subCateId)".hmac(algorithm: .SHA256, key: "movietrailerhd.fun")
-            param["token"] = token
+            if subCateId.isNumber{
+                param["subCateId"] = subCateId
+                param["limit"] = limit
+                param["offset"] = offset
+                let token = "http://mapgo2animez.ga/api/imuzic/getListVideo?limit=\(limit)&offset=\(offset)&subCateId=\(subCateId)".hmac(algorithm: .SHA256, key: "movietrailerhd.fun")
+                param["token"] = token
+            }else{
+                param["playlistId"] = subCateId.toBase64()
+                param["limit"] = limit
+                param["offset"] = offset
+                let token = "http://mapgo2animez.ga/api/imuzic/getListVideoWithPlaylistId?limit=\(limit)&offset=\(offset)&playlistId=\(subCateId.toBase64().replace("=", with: "%3D"))".hmac(algorithm: .SHA256, key: "movietrailerhd.fun")
+                param["token"] = token
+            }
+            
         case .getListFree(let offset):
             param["limit"] = 20
             param["offset"] = offset
@@ -112,3 +125,28 @@ extension ImuzicServices: TargetType {
 }
 
 
+extension String {
+
+    func fromBase64() -> String? {
+        guard let data = Data(base64Encoded: self) else {
+            return nil
+        }
+
+        return String(data: data, encoding: .utf8)
+    }
+    
+    
+    func replace(_ originalString:String, with newString:String) -> String {
+        return self.replacingOccurrences(of: originalString, with: newString)
+    }
+    
+    
+    func toBase64() -> String {
+        return Data(self.utf8).base64EncodedString()
+    }
+    
+    var isNumber: Bool {
+        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
+
+}

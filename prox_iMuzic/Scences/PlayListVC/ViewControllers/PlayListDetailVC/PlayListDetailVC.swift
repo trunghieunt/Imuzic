@@ -12,7 +12,7 @@ import PullToRefreshKit
 class PlayListDetailVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var secondViewController : PlayerVC?
     
     var playlist: GenresModels?
     var playList: PlayListModels?
@@ -147,11 +147,30 @@ extension PlayListDetailVC: UITableViewDataSource{
 extension PlayListDetailVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0{
-            let vc = PlayerVC.loadFromNib()
-            vc.listSongs = self.listSongs
-            vc.index = indexPath.row - 1
-            self.navigationController?.present(vc, animated: true, completion: nil)
+            let controller = PlayerVC.loadFromNib()
+            controller.listSongs = self.listSongs
+            controller.index = indexPath.row - 1
+            let window = UIApplication.shared.keyWindow!
+            
+            if check{
+                secondViewController?.add()
+            }else{
+                check = true
+                if #available(iOS 11.0, *) {
+                    controller.viewControllerHeight = self.view.bounds
+                    controller.view.frame = CGRect(x: 0, y: self.view.bounds.height - 100, width: self.view.bounds.width, height: 50)
+                } else {
+                    // Fallback on earlier versions
+                }
+                
+                window.addSubview(controller.view)
+                
+                self.secondViewController = controller
+            }
         }
         
     }
 }
+
+
+var check = false
