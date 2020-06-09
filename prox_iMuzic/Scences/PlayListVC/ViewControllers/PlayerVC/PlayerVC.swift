@@ -58,6 +58,9 @@ class PlayerVC: UIViewController {
     var index = 0
     var typePlayer = false
     
+    var panGesture = UIPanGestureRecognizer()
+    static let notificationName = Notification.Name("PlayerNotification")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(PlayerVC.playForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -66,16 +69,48 @@ class PlayerVC: UIViewController {
                                                selector: #selector(playerDidFinishPlaying),
                                                name: .AVPlayerItemDidPlayToEndTime,
                                                object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openPlayer(notification:)),
+                                               name: PlayerVC.notificationName, object: nil)
+        
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(draggedView))
+        miniPlayer.isUserInteractionEnabled = true
+        miniPlayer.addGestureRecognizer(panGesture)
+        
         configUI()
         configPlayer()
         setupPlayer()
         getFavorite(self.listSongs[index].id ?? "0")
-        showMiniPlayer()
+        showPlayer()
     }
     
-    func showMiniPlayer(){
-        self.playerHeight.constant = 0
-        self.viewPlayer.alpha = 0
+    @objc func openPlayer(notification:Notification){
+        let data = notification.userInfo
+        let _listSongs = data?["listSongs"] as? [SongModel]
+        let _index = data?["indexPath"] as? Int
+        
+        if _listSongs == self.listSongs{
+            if _index != self.index{
+                self.index = _index ?? self.index
+                self.resetPlayer()
+                if let youtubeId = self.listSongs[index].youtubeId{
+                    getStreamingLink(youtubeId, .play)
+                }
+                getFavorite(self.listSongs[index].id ?? "0")
+            }
+        }else{
+            self.listSongs = _listSongs ?? self.listSongs
+            self.index = _index ?? self.index
+            self.resetPlayer()
+            if let youtubeId = self.listSongs[index].youtubeId{
+                getStreamingLink(youtubeId, .play)
+            }
+            getFavorite(self.listSongs[index].id ?? "0")
+        }
+    }
+    
+    func showPlayer(){
+        self.playerMiniHeight.constant = 0
+        self.miniPlayer.alpha = 0
     }
     
     @objc func playForeground(){
@@ -86,10 +121,7 @@ class PlayerVC: UIViewController {
         AVPlayerViewControllerManager.shared.player?.pause()
         if typePlayer == false{
             self.index += 1
-            self.nameSing.text = self.listSongs[index].artist
-            self.nameSong.text = self.listSongs[index].title
-            self.SingerMiniPlayer.text = self.listSongs[index].artist
-            self.songMiniPlayer.text = self.listSongs[index].title
+            self.resetPlayer()
         }
         
         if let youtubeId = self.listSongs[index].youtubeId{
@@ -97,6 +129,38 @@ class PlayerVC: UIViewController {
             getStreamingLink(youtubeId, .playAndAdd)
         }
         getFavorite(self.listSongs[index].id ?? "0")
+        
+    }
+    
+    var viewTranslation = CGPoint(x: 0, y: 0)
+    var viewTranslationY: CGFloat = 120
+    var viewTranslationX: CGFloat = 60
+    
+    
+    @objc func draggedView(sender:UIPanGestureRecognizer){
+        self.view.bringSubviewToFront(miniPlayer)
+        switch sender.state {
+        case .changed:
+            viewTranslation = sender.translation(in: self.view)
+            if viewTranslation.x < -10{
+                self.viewTranslationX = 60
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
+                })
+            }else if viewTranslation.x > 10{
+                self.viewTranslationX = self.view.bounds.width - 56
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
+                })
+            }else{
+                self.viewTranslationY += self.viewTranslation.y
+                self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY + self.viewTranslation.y, width: self.view.bounds.width, height: 54)
+            }
+            
+            sender.setTranslation(CGPoint.zero, in: self.view)
+        default:
+            break
+        }
         
     }
     
@@ -118,14 +182,11 @@ class PlayerVC: UIViewController {
     }
     
     func configUI() {
-//        self.viewPlayer.isHidden = true
-        self.imgSong.layer.cornerRadius = 15
-        self.miniPlayer.layer.cornerRadius = 20
+        self.imgSong.layer.cornerRadius = 27
+        self.miniPlayer.layer.cornerRadius = 27
         self.viewRight.layer.cornerRadius = 13
-        self.nameSing.text = self.listSongs[index].artist
-        self.nameSong.text = self.listSongs[index].title
-        self.SingerMiniPlayer.text = self.listSongs[index].artist
-        self.songMiniPlayer.text = self.listSongs[index].title
+        self.viewTranslationX = self.view.bounds.width - 56
+        self.resetPlayer()
         self.typePlayer(repeated: true)
     }
     
@@ -173,30 +234,14 @@ class PlayerVC: UIViewController {
     }
     @IBAction func showMainPlayer(_ sender: Any) {
         
-         let window = UIApplication.shared.keyWindow
-         var topPadding : CGFloat = 0
-         var bottomPadding : CGFloat = 0
-         
-         if #available(iOS 11.0, *) {
-             topPadding = window?.safeAreaInsets.top ?? 0
-             bottomPadding = window?.safeAreaInsets.bottom ?? 0
-         } else {
-            // Fallback on earlier versions
-        }
-        
+        self.viewPlayer.isHidden = false
+        self.playerHeight.constant = self.view.bounds.height
+        self.view.frame = CGRect(x: 0, y: self.view.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height)
+        self.miniPlayer.alpha = 0
+        self.playerHeight.constant = self.view.bounds.height
         UIView.animate(withDuration: 1, animations: {
-            
-        }, completion: nil)
-        UIView.animate(withDuration: 1, animations: {
-            self.view.frame = self.viewControllerHeight ?? UIScreen.main.bounds
-            if #available(iOS 11.0, *) {
-                self.playerHeight.constant = self.view.frame.size.height - topPadding - bottomPadding
-            } else {
-                self.playerHeight.constant = self.view.bounds.height
-            }
+            self.view.frame = UIScreen.main.bounds
             self.viewPlayer.alpha = 1
-            
-            self.miniPlayer.alpha = 0
         }) { (true) in
             self.playerMiniHeight.constant = 0
         }
@@ -213,14 +258,24 @@ class PlayerVC: UIViewController {
             if let _row = row{
                 listSongFavorites.remove(at: _row)
             }
-            
-            
             StoragePlayList.sharedInstance.saveFavorites(listFavorites: self.listSongFavorites)
             self.outletAddFavorite.setImage(UIImage(named: "ic_like_white"), for: .normal)
         }
-        
-        
     }
+    func resetPlayer() {
+        self.nameSing.text = self.listSongs[index].artist
+        self.nameSong.text = self.listSongs[index].title
+        
+        if let strUrl = self.listSongs[index].thumbnail {
+            let url = URL(string:strUrl)
+            self.imgSong.kf.setImage(with: url)
+        }else{
+            self.imgSong.image = UIImage(named: "image_thumb")
+        }
+        self.SingerMiniPlayer.text = self.listSongs[index].artist
+        self.songMiniPlayer.text = self.listSongs[index].title
+    }
+    
     @IBAction func actionAddList(_ sender: Any) {
         let vc = AddSongPopup.loadFromNib()
         vc.songItem = self.listSongs[index]
@@ -276,9 +331,7 @@ class PlayerVC: UIViewController {
         }
         
     }
-    func add(){
-        print("a")
-    }
+    
     @IBAction func actionNext(_ sender: Any) {
         AVPlayerViewControllerManager.shared.player?.pause()
         AVPlayerViewControllerManager.shared.video = nil
@@ -286,11 +339,7 @@ class PlayerVC: UIViewController {
             self.popViewController()
         }else{
             self.index += 1
-            self.nameSing.text = self.listSongs[index].artist
-            self.nameSong.text = self.listSongs[index].title
-            self.SingerMiniPlayer.text = self.listSongs[index].artist
-            self.songMiniPlayer.text = self.listSongs[index].title
-            
+            self.resetPlayer()
             if let youtubeId = self.listSongs[index].youtubeId{
                 getStreamingLink(youtubeId, .play)
             }
@@ -305,10 +354,7 @@ class PlayerVC: UIViewController {
             self.popViewController()
         }else{
             self.index -= 1
-            self.nameSing.text = self.listSongs[index].artist
-            self.nameSong.text = self.listSongs[index].title
-            self.SingerMiniPlayer.text = self.listSongs[index].artist
-            self.songMiniPlayer.text = self.listSongs[index].title
+            self.resetPlayer()
             if let youtubeId = self.listSongs[index].youtubeId{
                 getStreamingLink(youtubeId, .play)
             }
@@ -317,18 +363,15 @@ class PlayerVC: UIViewController {
     }
     
     @IBAction func actionBack(_ sender: Any) {
-        UIView.animate(withDuration: 1, animations: {
-            
-        }, completion: nil)
         
         UIView.animate(withDuration: 1, animations: {
-            self.view.frame = CGRect(x: 0, y: self.view.frame.height - 100, width: self.view.bounds.width, height: 50)
-            
             self.viewPlayer.alpha = 0
-            
-            self.miniPlayer.alpha = 1
-            self.playerMiniHeight.constant = 60
+            self.view.frame = CGRect(x: 0, y: self.view.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height)
+            self.playerMiniHeight.constant = 54
         }) { (true) in
+            self.view.frame = CGRect(x: self.view.bounds.width - 56, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
+            self.miniPlayer.alpha = 1
+            self.viewPlayer.isHidden = true
             self.playerHeight.constant = 0
         }
     }

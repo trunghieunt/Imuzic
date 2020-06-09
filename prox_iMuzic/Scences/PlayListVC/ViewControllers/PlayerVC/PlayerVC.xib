@@ -41,66 +41,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Xt-LR8">
-                    <rect key="frame" x="25" y="0.0" width="364" height="50"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_Gender_3" translatesAutoresizingMaskIntoConstraints="NO" id="W22-63-Nrh">
-                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="W22-63-Nrh" secondAttribute="height" id="vlZ-ee-vNU"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hanava" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxG-27-2jh">
-                            <rect key="frame" x="62" y="5" width="52.333333333333343" height="18.333333333333332"/>
-                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
-                            <color key="textColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calima Cabello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUe-dX-MPu">
-                            <rect key="frame" x="61.999999999999993" y="23.333333333333332" width="77.333333333333314" height="13.999999999999996"/>
-                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
-                            <color key="textColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwe-Cn-MQe">
-                            <rect key="frame" x="314" y="0.0" width="50" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="Iwe-Cn-MQe" secondAttribute="height" id="rEB-aW-xox"/>
-                            </constraints>
-                            <state key="normal" image="ic_playerMini"/>
-                            <connections>
-                                <action selector="actionPlayer:" destination="-1" eventType="touchUpInside" id="ufs-91-pnp"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNs-Jj-huV">
-                            <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
-                            <connections>
-                                <action selector="showMainPlayer:" destination="-1" eventType="touchUpInside" id="JhO-Xt-xdW"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstItem="ZUe-dX-MPu" firstAttribute="top" secondItem="NxG-27-2jh" secondAttribute="bottom" id="6Mf-FS-hdW"/>
-                        <constraint firstItem="UNs-Jj-huV" firstAttribute="leading" secondItem="M5J-Xt-LR8" secondAttribute="leading" id="6lr-Yh-Lly"/>
-                        <constraint firstItem="NxG-27-2jh" firstAttribute="leading" secondItem="W22-63-Nrh" secondAttribute="trailing" constant="12" id="7LL-gZ-HQI"/>
-                        <constraint firstAttribute="bottom" secondItem="Iwe-Cn-MQe" secondAttribute="bottom" id="HP6-2k-fpz"/>
-                        <constraint firstItem="ZUe-dX-MPu" firstAttribute="leading" secondItem="W22-63-Nrh" secondAttribute="trailing" constant="12" id="ITJ-aK-0DN"/>
-                        <constraint firstItem="Iwe-Cn-MQe" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="top" id="JDi-eN-qf9"/>
-                        <constraint firstItem="NxG-27-2jh" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="top" constant="5" id="Q9k-Lj-NqF"/>
-                        <constraint firstAttribute="bottom" secondItem="UNs-Jj-huV" secondAttribute="bottom" id="aPo-SB-5jh"/>
-                        <constraint firstItem="W22-63-Nrh" firstAttribute="leading" secondItem="M5J-Xt-LR8" secondAttribute="leading" id="bAv-zv-zkd"/>
-                        <constraint firstItem="W22-63-Nrh" firstAttribute="centerY" secondItem="M5J-Xt-LR8" secondAttribute="centerY" id="dsr-mi-QX0"/>
-                        <constraint firstAttribute="trailing" secondItem="Iwe-Cn-MQe" secondAttribute="trailing" id="iae-p7-QS0"/>
-                        <constraint firstItem="W22-63-Nrh" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="top" id="kjd-IO-G78"/>
-                        <constraint firstAttribute="height" constant="50" id="kyq-Yh-wAz"/>
-                        <constraint firstItem="UNs-Jj-huV" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="top" id="qys-3h-ynO"/>
-                        <constraint firstItem="Iwe-Cn-MQe" firstAttribute="leading" secondItem="UNs-Jj-huV" secondAttribute="trailing" id="sfZ-hW-6Ac"/>
-                        <constraint firstItem="ZUe-dX-MPu" firstAttribute="leading" secondItem="NxG-27-2jh" secondAttribute="leading" id="wx1-Ux-jmB"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HK-Tu-Rd1">
-                    <rect key="frame" x="0.0" y="50" width="414" height="770"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzk-0m-KXX">
                             <rect key="frame" x="0.0" y="20" width="60" height="60"/>
@@ -108,7 +50,7 @@
                                 <constraint firstAttribute="width" constant="60" id="8YU-Vh-b5W"/>
                                 <constraint firstAttribute="height" constant="60" id="Luq-2G-qBR"/>
                             </constraints>
-                            <state key="normal" image="ic_back"/>
+                            <state key="normal" image="down-arrow"/>
                             <connections>
                                 <action selector="actionBack:" destination="-1" eventType="touchUpInside" id="KZa-VH-ig4"/>
                             </connections>
@@ -120,7 +62,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-Wc-uC9">
-                            <rect key="frame" x="0.0" y="108.33333333333334" width="414" height="283"/>
+                            <rect key="frame" x="0.0" y="108.33333333333331" width="414" height="283"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="8dw-Wc-uC9" secondAttribute="height" multiplier="1170:800" id="nBw-4i-Utl"/>
@@ -262,13 +204,75 @@
                         <constraint firstItem="cGz-L5-3TS" firstAttribute="leading" secondItem="4HK-Tu-Rd1" secondAttribute="leading" id="zAE-Jb-SDP"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-Xt-LR8">
+                    <rect key="frame" x="0.0" y="0.0" width="350" height="54"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_Gender_3" translatesAutoresizingMaskIntoConstraints="NO" id="W22-63-Nrh">
+                            <rect key="frame" x="2" y="2" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="D6V-mU-0sf"/>
+                                <constraint firstAttribute="width" secondItem="W22-63-Nrh" secondAttribute="height" id="vlZ-ee-vNU"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hanava" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxG-27-2jh">
+                            <rect key="frame" x="64" y="5" width="217" height="18.333333333333332"/>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
+                            <color key="textColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calima Cabello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUe-dX-MPu">
+                            <rect key="frame" x="64" y="23.333333333333332" width="217" height="13.999999999999996"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
+                            <color key="textColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwe-Cn-MQe">
+                            <rect key="frame" x="296" y="0.0" width="54" height="54"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Iwe-Cn-MQe" secondAttribute="height" id="rEB-aW-xox"/>
+                            </constraints>
+                            <state key="normal" image="ic_playerMini"/>
+                            <connections>
+                                <action selector="actionPlayer:" destination="-1" eventType="touchUpInside" id="ufs-91-pnp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNs-Jj-huV">
+                            <rect key="frame" x="0.0" y="0.0" width="296" height="54"/>
+                            <connections>
+                                <action selector="showMainPlayer:" destination="-1" eventType="touchUpInside" id="JhO-Xt-xdW"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="350" id="02W-1j-a28"/>
+                        <constraint firstItem="ZUe-dX-MPu" firstAttribute="top" secondItem="NxG-27-2jh" secondAttribute="bottom" id="6Mf-FS-hdW"/>
+                        <constraint firstItem="UNs-Jj-huV" firstAttribute="leading" secondItem="M5J-Xt-LR8" secondAttribute="leading" id="6lr-Yh-Lly"/>
+                        <constraint firstAttribute="trailing" secondItem="Iwe-Cn-MQe" secondAttribute="trailing" id="6m0-Zf-isg"/>
+                        <constraint firstItem="NxG-27-2jh" firstAttribute="leading" secondItem="W22-63-Nrh" secondAttribute="trailing" constant="12" id="7LL-gZ-HQI"/>
+                        <constraint firstAttribute="bottom" secondItem="Iwe-Cn-MQe" secondAttribute="bottom" id="HP6-2k-fpz"/>
+                        <constraint firstItem="ZUe-dX-MPu" firstAttribute="leading" secondItem="W22-63-Nrh" secondAttribute="trailing" constant="12" id="ITJ-aK-0DN"/>
+                        <constraint firstItem="Iwe-Cn-MQe" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="top" id="JDi-eN-qf9"/>
+                        <constraint firstItem="NxG-27-2jh" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="top" constant="5" id="Q9k-Lj-NqF"/>
+                        <constraint firstAttribute="bottom" secondItem="UNs-Jj-huV" secondAttribute="bottom" id="aPo-SB-5jh"/>
+                        <constraint firstItem="W22-63-Nrh" firstAttribute="leading" secondItem="M5J-Xt-LR8" secondAttribute="leading" constant="2" id="bAv-zv-zkd"/>
+                        <constraint firstItem="Iwe-Cn-MQe" firstAttribute="leading" secondItem="ZUe-dX-MPu" secondAttribute="trailing" constant="15" id="ciU-Oc-pcE"/>
+                        <constraint firstItem="W22-63-Nrh" firstAttribute="centerY" secondItem="M5J-Xt-LR8" secondAttribute="centerY" id="dsr-mi-QX0"/>
+                        <constraint firstItem="Iwe-Cn-MQe" firstAttribute="leading" secondItem="NxG-27-2jh" secondAttribute="trailing" constant="15" id="ikh-a8-90l"/>
+                        <constraint firstItem="W22-63-Nrh" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="top" constant="2" id="kjd-IO-G78"/>
+                        <constraint firstAttribute="height" constant="54" id="kyq-Yh-wAz"/>
+                        <constraint firstItem="UNs-Jj-huV" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="top" id="qys-3h-ynO"/>
+                        <constraint firstItem="Iwe-Cn-MQe" firstAttribute="leading" secondItem="UNs-Jj-huV" secondAttribute="trailing" id="sfZ-hW-6Ac"/>
+                        <constraint firstItem="ZUe-dX-MPu" firstAttribute="leading" secondItem="NxG-27-2jh" secondAttribute="leading" id="wx1-Ux-jmB"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.094117647060000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="M5J-Xt-LR8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="CaK-Ir-s1B"/>
-                <constraint firstItem="M5J-Xt-LR8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="JPx-Ph-9QH"/>
-                <constraint firstItem="4HK-Tu-Rd1" firstAttribute="top" secondItem="M5J-Xt-LR8" secondAttribute="bottom" id="Uyw-VA-JxG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="M5J-Xt-LR8" secondAttribute="trailing" constant="25" id="Yc0-eJ-Jbr"/>
+                <constraint firstItem="M5J-Xt-LR8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Ar-JS-Op8"/>
+                <constraint firstItem="M5J-Xt-LR8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7sc-qr-Epx"/>
+                <constraint firstItem="4HK-Tu-Rd1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WYA-ta-bO3"/>
+                <constraint firstAttribute="bottom" secondItem="4HK-Tu-Rd1" secondAttribute="bottom" id="oxh-3n-OyB"/>
                 <constraint firstItem="4HK-Tu-Rd1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="spZ-Iu-5kq"/>
                 <constraint firstItem="4HK-Tu-Rd1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yDT-YA-8jF"/>
             </constraints>
@@ -280,7 +284,7 @@
     <resources>
         <image name="alarm-clock" width="24" height="25"/>
         <image name="banner_Gender_3" width="276" height="182"/>
-        <image name="ic_back" width="12" height="20"/>
+        <image name="down-arrow" width="24" height="24"/>
         <image name="ic_like_white" width="24" height="22"/>
         <image name="ic_next" width="28" height="24"/>
         <image name="ic_play" width="65" height="64"/>

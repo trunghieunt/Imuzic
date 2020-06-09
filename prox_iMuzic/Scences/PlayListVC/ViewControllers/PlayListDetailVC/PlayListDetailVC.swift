@@ -116,15 +116,39 @@ extension PlayListDetailVC: UITableViewDataSource{
             
             cellBanner.playerType = {[weak self](isPlay) in
                 if self!.listSongs.count != 0{
-                    let vc = PlayerVC.loadFromNib()
-                    vc.listSongs = self!.listSongs
+                    let controller = PlayerVC.loadFromNib()
+                    controller.listSongs = self!.listSongs
                     
+                    let window = UIApplication.shared.keyWindow!
+                    var index = 0
                     if isPlay{
-                        vc.index = 0
+                        index = 0
                     }else{
-                        vc.index = Int.random(in: 0 ... (self?.listSongs.count)!)
+                        index = Int.random(in: 0 ... (self?.listSongs.count)!)
                     }
-                    self?.navigationController?.present( vc, animated: true, completion: nil)
+                    
+                    if check{
+                        let dataDict: [String: Any] = ["listSongs": self?.listSongs, "indexPath" : index]
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PlayerNotification"), object: nil,userInfo: dataDict)
+                    }else{
+                        check = true
+                        controller.index = index
+                        controller.viewControllerHeight = self?.view.bounds
+                        controller.view.frame = UIScreen.main.bounds
+                        
+                        window.addSubview(controller.view)
+                        
+                        controller.view.alpha = 0
+                        controller.view.isHidden = true
+                        
+                        UIView.animate(withDuration: 0.3, delay: 0, options: .transitionCrossDissolve, animations: {
+                            controller.view.isHidden = false
+                            controller.view.alpha = 1
+                        }, completion: nil)
+                        
+                        self?.secondViewController = controller
+                    }
+                    
                 }else{
                     self?.showToastAtBottom(message: "No Songs")
                 }
@@ -153,17 +177,22 @@ extension PlayListDetailVC: UITableViewDelegate{
             let window = UIApplication.shared.keyWindow!
             
             if check{
-                secondViewController?.add()
+                let dataDict: [String: Any] = ["listSongs": self.listSongs, "indexPath" : indexPath.row - 1]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PlayerNotification"), object: nil,userInfo: dataDict)
             }else{
                 check = true
-                if #available(iOS 11.0, *) {
-                    controller.viewControllerHeight = self.view.bounds
-                    controller.view.frame = CGRect(x: 0, y: self.view.bounds.height - 100, width: self.view.bounds.width, height: 50)
-                } else {
-                    // Fallback on earlier versions
-                }
+                controller.viewControllerHeight = self.view.bounds
+                controller.view.frame = UIScreen.main.bounds
                 
                 window.addSubview(controller.view)
+                
+                controller.view.alpha = 0
+                controller.view.isHidden = true
+                
+                UIView.animate(withDuration: 0.3, delay: 0, options: .transitionCrossDissolve, animations: {
+                    controller.view.isHidden = false
+                    controller.view.alpha = 1
+                }, completion: nil)
                 
                 self.secondViewController = controller
             }

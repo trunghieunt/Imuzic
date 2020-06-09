@@ -10,12 +10,12 @@ import UIKit
 import EmptyDataSet_Swift
 
 class FavoritesVC: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
-
-    
+    var secondViewController : PlayerVC?
     var listSongs: [SongModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTB()
@@ -87,8 +87,30 @@ extension FavoritesVC: EmptyDataSetSource {
 
 extension FavoritesVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = PlayerVC.loadFromNib()
-        vc.listSongs = self.listSongs
-        self.navigationController?.present(vc, animated: true, completion: nil)
+        let controller = PlayerVC.loadFromNib()
+        controller.listSongs = self.listSongs
+        controller.index = indexPath.row
+        let window = UIApplication.shared.keyWindow!
+        
+        if check{
+            let dataDict: [String: Any] = ["listSongs": self.listSongs, "indexPath" : indexPath.row]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PlayerNotification"), object: nil,userInfo: dataDict)
+        }else{
+            check = true
+            controller.viewControllerHeight = self.view.bounds
+            controller.view.frame = UIScreen.main.bounds
+            
+            window.addSubview(controller.view)
+            
+            controller.view.alpha = 0
+            controller.view.isHidden = true
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: .transitionCrossDissolve, animations: {
+                controller.view.isHidden = false
+                controller.view.alpha = 1
+            }, completion: nil)
+            
+            self.secondViewController = controller
+        }
     }
 }
