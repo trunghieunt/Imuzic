@@ -115,45 +115,21 @@ struct ImuzicAPIManager {
         }
     }
     
-    func getListFree(offset: String,success :  @escaping ([SearchModels], Int?) -> Void,failed :  @escaping (String) -> Void) {
-        var listSong : [SearchModels] = []
+    func getListFree(pageToken: String, q: String,success :  @escaping ([SongModel], String?) -> Void,failed :  @escaping (String) -> Void) {
+        var listSong : [SongModel] = []
         
-        provider.request(.getListFree(offset: offset)) { (result) in
+        provider.request(.getListFree(pageToken: pageToken, q: q)) { (result) in
             switch result{
             case .success(let value):
                 do {
                     let json = try JSON.init(data: value.data)
-                    let results = json["Imuzic"]["Items"].arrayValue
-                    let countSong = json["Imuzic"]["TotalSongs"].int
+                    let results = json["items"].arrayValue
+                    let nextPageToken = json["nextPageToken"].stringValue
                     for result in results{
-                        let song = SearchModels.init(json: result)
+                        let song = SongModel.init(json: result)
                         listSong.append(song)
                     }
-                    success(listSong, countSong)
-                } catch(let error) {
-                    failed(error.localizedDescription)
-                }
-            case .failure(let error):
-                failed(error.localizedDescription)
-            }
-        }
-    }
-    
-    func getListSearch(q: String, limit: String,success :  @escaping ([SearchModels]) -> Void,failed :  @escaping (String) -> Void) {
-        var listSong : [SearchModels] = []
-        
-        provider.request(.getSearch(q: q, limit: limit)) { (result) in
-            switch result{
-            case .success(let value):
-                do {
-                    let json = try JSON.init(data: value.data)
-                    print(json)
-                    let results = json["TrailerBox"].arrayValue
-                    for result in results{
-                        let song = SearchModels.init(json: result)
-                        listSong.append(song)
-                    }
-                    success(listSong)
+                    success(listSong, nextPageToken)
                 } catch(let error) {
                     failed(error.localizedDescription)
                 }

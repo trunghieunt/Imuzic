@@ -10,14 +10,14 @@ import Foundation
 import Alamofire
 import Moya
 
+let API_KEY = "AIzaSyBPO8E9UuOB3APiw2w1ShsFP7OI5rfzRBU"
 
 enum ImuzicServices {
     case getAllcate
     case getListPlaylist(cateID: String, limit: String, offset: String)
     case getAllGenres
     case getAllSongs(subCateId: String, limit: String, offset: String)
-    case getListFree(offset: String)
-    case getSearch(q: String, limit: String)
+    case getListFree(pageToken: String, q: String)
 }
 
 extension ImuzicServices: TargetType {
@@ -38,9 +38,7 @@ extension ImuzicServices: TargetType {
                 return URL.init(string: "http://mapgo2animez.ga/api/imuzic/getListVideoWithPlaylistId")!
             }
         case .getListFree:
-            return URL.init(string: "http://mapgo2animez.ga/api/imuzic/getListFree")!
-        case .getSearch(_):
-            return URL.init(string: "http://mapgo2animez.ga/api/imuzic/search")!
+            return URL.init(string: "https://www.googleapis.com/youtube/v3/search")!
         }
         
     }
@@ -56,8 +54,6 @@ extension ImuzicServices: TargetType {
         case .getAllSongs(_):
             return ""
         case .getListFree(_):
-            return ""
-        case .getSearch(_):
             return ""
         }
 
@@ -102,17 +98,13 @@ extension ImuzicServices: TargetType {
                 param["token"] = token
             }
             
-        case .getListFree(let offset):
-            param["limit"] = 20
-            param["offset"] = offset
-            let token = "http://mapgo2animez.ga/api/imuzic/getListFree?limit=20&offset=\(offset)".hmac(algorithm: .SHA256, key: "movietrailerhd.fun")
-            param["token"] = token
-        case .getSearch(let q, let limit):
+        case .getListFree(let pageToken, let q):
+            param["part"] = "snippet"
+            param["type"] = "video"
+            param["maxResults"] = 20
+            param["pageToken"] = pageToken
+            param["key"] = API_KEY
             param["q"] = q
-            param["limit"] = limit
-            param["offset"] = 0
-            let token = "http://mapgo2animez.ga/api/imuzic/search?limit=\(limit)&offset=0&q=\(q)".hmac(algorithm: .SHA256, key: "movietrailerhd.fun")
-            param["token"] = token
         }
         
         

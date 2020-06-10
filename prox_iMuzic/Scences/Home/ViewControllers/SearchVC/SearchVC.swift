@@ -11,13 +11,18 @@ import UIKit
 class SearchVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var searchBar: UITextField!{
+        didSet{
+            self.searchBar.addRightImage("search")
+        }
+    }
     
+    var secondViewController : PlayerVC?
     private var searchTimer:Timer?
     
     var textSearch : String = ""
-    var listSongSearch: [SearchModels] = []
-    var page = 0
+    var listSongSearch: [SongModel] = []
+    var nextPageToken = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +33,15 @@ class SearchVC: UIViewController {
     }
     func configTB() {
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.tableView.separatorStyle = .none
         self.tableView.registerCell(PlayListCell.className)
         
-        searchBar.attributedPlaceholder = NSAttributedString(string: "Enter anime tv shows title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        searchBar.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
 
         searchBar.layer.cornerRadius = 8
         searchBar.setLeftPaddingPoints(10)
-        searchBar.returnKeyType = UIReturnKeyType.done
+        searchBar.returnKeyType = UIReturnKeyType.search
         searchBar.delegate = self
         searchBar.addTarget(self, action: #selector(actionSearch), for: .editingChanged)
 
@@ -47,7 +53,6 @@ class SearchVC: UIViewController {
     }
     
     @objc func dismissKeyboards() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
@@ -63,58 +68,27 @@ class SearchVC: UIViewController {
     }
     
     @objc func updateSearch(){
-        self.textSearch = self.searchBar.text ?? ""
-        if self.textSearch != ""{
-            getlistItemsSearch(loadmore: false)
-        }else{
-            getListFree(loadmore: false)
-        }
+        getListFree(loadmore: false)
     }
-    
-    
-    func getlistItemsSearch(loadmore: Bool) {
-        if loadmore{
-            self.page += 20
-        }else{
-            self.page = 0
-            self.showLoadingIndicator()
-        }
-        
-        ImuzicAPIManager.sharedInstance.getListSearch(q: self.textSearch, limit: "20", success: {[weak self](listSongSearch) in
-            guard let sSelf = self else {return}
-            if loadmore{
-                sSelf.listSongSearch.append(contentsOf: listSongSearch)
-            }else{
-                sSelf.listSongSearch = listSongSearch
-            }
-            
-            sSelf.hideLoadingIndicator()
-            sSelf.tableView.reloadData()
-            sSelf.tableView.switchRefreshFooter(to: .normal)
-            sSelf.tableView.switchRefreshHeader(to: .normal(.success, 0.5))
-        }) { (error) in
-            self.hideLoadingIndicator()
-            self.showToastAtBottom(message: error)
-        }
-    }
-    
     
     
     func getListFree(loadmore: Bool) {
         
         if loadmore{
-            self.page += 20
+            
         }else{
-            self.page = 0
+            self.nextPageToken = ""
             self.showLoadingIndicator()
         }
-        ImuzicAPIManager.sharedInstance.getListFree(offset: String(self.page), success: { [weak self](listSongSearch, count) in
+        ImuzicAPIManager.sharedInstance.getListFree(pageToken: self.nextPageToken, q: self.searchBar.text ?? "", success: { [weak self](listSongSearch, nextPageToken) in
             guard let sSelf = self else {return}
             if loadmore{
                 sSelf.listSongSearch.append(contentsOf: listSongSearch)
             }else{
                 sSelf.listSongSearch = listSongSearch
             }
+            
+            sSelf.nextPageToken = nextPageToken ?? ""
             
             sSelf.hideLoadingIndicator()
             sSelf.tableView.reloadData()
@@ -125,24 +99,16 @@ class SearchVC: UIViewController {
             self.showToastAtBottom(message: error)
         }
     }
-
+    
     func configRefresh() {
         
         self.tableView.configRefreshFooter(container: self) {
-            if self.textSearch != ""{
-                self.getlistItemsSearch(loadmore: true)
-            }else{
-                self.getListFree(loadmore: true)
-            }
+            self.getListFree(loadmore: true)
         }
         
-
+        
         self.tableView.configRefreshHeader(container: self) {
-            if self.textSearch != ""{
-                self.getlistItemsSearch(loadmore: false)
-            }else{
-                self.getListFree(loadmore: false)
-            }
+            self.getListFree(loadmore: false)
         }
     }
     
@@ -170,8 +136,32 @@ extension SearchVC: UITableViewDataSource{
 
 extension SearchVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = PlayerVC.loadFromNib()
-        self.present(vc, animated: true, completion: nil)
+        let controller = PlayerVC.loadFromNib()
+        controller.listSongs = self.listSongSearch
+        
+        let window = UIApplication.shared.keyWindow!
+        
+        if check{
+            let dataDict: [String: Any] = ["listSongs": self.listSongSearch, "indexPath" : indexPath.row]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PlayerNotification"), object: nil,userInfo: dataDict)
+        }else{
+            check = true
+            controller.index = indexPath.row
+            controller.viewControllerHeight = self.view.bounds
+            controller.view.frame = UIScreen.main.bounds
+            
+            window.addSubview(controller.view)
+            
+            controller.view.alpha = 0
+            controller.view.isHidden = true
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: .transitionCrossDissolve, animations: {
+                controller.view.isHidden = false
+                controller.view.alpha = 1
+            }, completion: nil)
+            
+            self.secondViewController = controller
+        }
     }
 }
 

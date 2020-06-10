@@ -19,6 +19,7 @@ enum ActionType: String {
 }
 
 class PlayerVC: UIViewController {
+    @IBOutlet weak var widthMiniPlayer: NSLayoutConstraint!
     
     @IBOutlet weak var nameSong: UILabel!
     
@@ -54,7 +55,6 @@ class PlayerVC: UIViewController {
     var youtubePlay = true
     var listSongs : [SongModel] = []
     var listSongFavorites: [SongModel] = []
-    var songsearch: SearchModels?
     var index = 0
     var typePlayer = false
     
@@ -186,6 +186,7 @@ class PlayerVC: UIViewController {
         self.miniPlayer.layer.cornerRadius = 27
         self.viewRight.layer.cornerRadius = 13
         self.viewTranslationX = self.view.bounds.width - 56
+        self.widthMiniPlayer.constant = UIScreen.main.bounds.width
         self.resetPlayer()
         self.typePlayer(repeated: true)
     }

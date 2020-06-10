@@ -29,8 +29,8 @@ class PlayListCell: UITableViewCell {
         img.layer.cornerRadius = 15
         self.viewCell.layer.cornerRadius = 15
     }
-    func configCell(item: SearchModels) {
-        if let strUrl = item.thumb {
+    func configCell(item: SongModel) {
+        if let strUrl = item.thumbnail {
             let url = URL(string:strUrl)
             self.img.kf.setImage(with: url)
         }else if let strUrl = item.thumbnail{
@@ -40,7 +40,7 @@ class PlayListCell: UITableViewCell {
             self.img.image = UIImage(named: "image_thumb")
         }
         self.nameList.text = item.title
-        self.overView.text = item.author
+        self.overView.text = item.artist
     }
     
     func configCell(item: PlayListLocalModels) {
