@@ -40,24 +40,24 @@ class PlayListColVC: UIViewController {
     
     func getListPlaylist(){
         self.showLoadingIndicator()
-         ImuzicAPIManager.sharedInstance.getListPlaylist(cateID: self.typeCate?.id! ?? "1", limit: "20", offset: "0", success: { [weak self](listPlayList) in
-             guard let sSelf = self else {return}
-             sSelf.listPlayList = listPlayList
-             sSelf.collectionView.reloadData()
+        ImuzicAPIManager.sharedInstance.getListPlaylist(cateID: self.typeCate?.id! ?? "1", limit: "20", offset: "0", success: { [weak self](listPlayList) in
+            guard let sSelf = self else {return}
+            sSelf.listPlayList = listPlayList
+            sSelf.collectionView.reloadData()
             sSelf.hideLoadingIndicator()
-         }) { (error) in
-             print(error)
+        }) { (error) in
+            print(error)
             self.hideLoadingIndicator()
-             self.showToastAtBottom(message: error)
-         }
-     }
+            self.showToastAtBottom(message: error)
+        }
+    }
     
     @IBAction func actionBack(_ sender: Any) {
         self.popViewController()
     }
     
-
-
+    
+    
 }
 
 extension PlayListColVC: UICollectionViewDataSource{
@@ -67,7 +67,7 @@ extension PlayListColVC: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollCell.className, for: indexPath) as! ListCollCell
-            cell.configCell(item: self.listPlayList[indexPath.row])
+        cell.configCell(item: self.listPlayList[indexPath.row])
         
         return cell
     }

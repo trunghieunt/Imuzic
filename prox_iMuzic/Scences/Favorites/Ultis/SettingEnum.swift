@@ -47,7 +47,7 @@ enum SettingEnum {
         case .shareWithFriend:
             return "ic_menu_share"
         case .nameApp1:
-            return "ic_upgrade"
+            return "new_icon_anime"
         case .aboutApp:
             return "ic_menu_about"
         case .reStorePurhase:

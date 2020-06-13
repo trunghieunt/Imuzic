@@ -25,6 +25,7 @@
                 <outlet property="nameSong" destination="tgH-Qs-Owm" id="tGd-yi-IDD"/>
                 <outlet property="outletAddFavorite" destination="zN0-9P-9cN" id="muN-xF-R02"/>
                 <outlet property="outletPlayBtn" destination="t0H-Xl-Noq" id="28S-ci-vpL"/>
+                <outlet property="outletPlayMini" destination="Iwe-Cn-MQe" id="qNc-ib-VuJ"/>
                 <outlet property="outletRepeatBtn" destination="Dlg-zz-FSC" id="doe-pn-i1J"/>
                 <outlet property="outletShufeBtn" destination="2e7-7G-WXE" id="nM3-uc-XcT"/>
                 <outlet property="playerContainer" destination="8dw-Wc-uC9" id="AW0-sS-Xol"/>

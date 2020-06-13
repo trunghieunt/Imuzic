@@ -51,6 +51,9 @@ class PlayerVC: UIViewController {
     
     @IBOutlet weak var miniPlayer: UIView!
     
+    @IBOutlet weak var outletPlayMini: UIButton!
+    
+    
     var viewControllerHeight : CGRect?
     var youtubePlay = true
     var listSongs : [SongModel] = []
@@ -135,6 +138,7 @@ class PlayerVC: UIViewController {
     var viewTranslation = CGPoint(x: 0, y: 0)
     var viewTranslationY: CGFloat = 120
     var viewTranslationX: CGFloat = 60
+    var _viewTranslationX: CGFloat = 60
     
     
     @objc func draggedView(sender:UIPanGestureRecognizer){
@@ -144,20 +148,32 @@ class PlayerVC: UIViewController {
             viewTranslation = sender.translation(in: self.view)
             if viewTranslation.x < -10{
                 self.viewTranslationX = 60
-                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                    self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
-                })
             }else if viewTranslation.x > 10{
                 self.viewTranslationX = self.view.bounds.width - 56
-                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                    self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
-                })
-            }else{
-                self.viewTranslationY += self.viewTranslation.y
-                self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY + self.viewTranslation.y, width: self.view.bounds.width, height: 54)
             }
             
+            self.viewTranslationY += self.viewTranslation.y
+            self._viewTranslationX += viewTranslation.x
+            
+            if self._viewTranslationX < 60{
+                self._viewTranslationX = 60
+            }
+            if self.viewTranslationY < 40{
+                self.viewTranslationY = 40
+            }
+            if self.viewTranslationY > UIScreen.main.bounds.height - 80{
+                self.viewTranslationY = UIScreen.main.bounds.height - 80
+            }
+            self.view.frame = CGRect(x: self._viewTranslationX, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
+            
             sender.setTranslation(CGPoint.zero, in: self.view)
+        case .ended, .cancelled, .failed:
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
+            })
+            
+            self._viewTranslationX = self.viewTranslationX
         default:
             break
         }
@@ -186,6 +202,7 @@ class PlayerVC: UIViewController {
         self.miniPlayer.layer.cornerRadius = 27
         self.viewRight.layer.cornerRadius = 13
         self.viewTranslationX = self.view.bounds.width - 56
+        self.viewTranslationY = UIScreen.main.bounds.height - 80
         self.widthMiniPlayer.constant = UIScreen.main.bounds.width
         self.resetPlayer()
         self.typePlayer(repeated: true)
@@ -227,12 +244,11 @@ class PlayerVC: UIViewController {
                     AVPlayerViewControllerManager.shared.player?.play()
                     
                 }
-                
             }
-            
         }
-        
     }
+    
+//    ic_pause_Black
     @IBAction func showMainPlayer(_ sender: Any) {
         
         self.viewPlayer.isHidden = false
@@ -292,7 +308,8 @@ class PlayerVC: UIViewController {
         self.showToastAtBottom(message: "Coming soon")
     }
     
-    @IBAction func actionAlarmClock(_ sender: Any) {self.showToastAtBottom(message: "Coming soon")
+    @IBAction func actionAlarmClock(_ sender: Any) {
+        self.showToastAtBottom(message: "Coming soon")
     }
     
     @IBAction func actionSpeed(_ sender: Any) {
@@ -323,10 +340,12 @@ class PlayerVC: UIViewController {
     @IBAction func actionPlayer(_ sender: Any) {
         if youtubePlay{
             self.outletPlayBtn.setImage(UIImage(named: "ic_pause"), for: .normal)
+            self.outletPlayMini.setImage(UIImage(named: "ic_pause_Black"), for: .normal)
             AVPlayerViewControllerManager.shared.player?.pause()
             self.youtubePlay = false
         }else{
             self.outletPlayBtn.setImage(UIImage(named: "ic_play"), for: .normal)
+            self.outletPlayMini.setImage(UIImage(named: "ic_playerMini"), for: .normal)
             AVPlayerViewControllerManager.shared.player?.play()
             self.youtubePlay = true
         }
@@ -364,13 +383,19 @@ class PlayerVC: UIViewController {
     }
     
     @IBAction func actionBack(_ sender: Any) {
-        
+        self.viewTranslationX = self.view.bounds.width
         UIView.animate(withDuration: 1, animations: {
             self.viewPlayer.alpha = 0
             self.view.frame = CGRect(x: 0, y: self.view.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height)
             self.playerMiniHeight.constant = 54
         }) { (true) in
-            self.view.frame = CGRect(x: self.view.bounds.width - 56, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
+            self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
+            
+            self.viewTranslationX = 60
+            
+            UIView.animate(withDuration: 1, animations: {
+                self.view.frame = CGRect(x: self.viewTranslationX, y: self.viewTranslationY, width: self.view.bounds.width, height: 54)
+            })
             self.miniPlayer.alpha = 1
             self.viewPlayer.isHidden = true
             self.playerHeight.constant = 0

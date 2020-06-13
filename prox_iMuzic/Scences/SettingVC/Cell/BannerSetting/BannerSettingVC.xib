@@ -27,6 +27,9 @@
                             <constraint firstAttribute="width" constant="175" id="sPO-vQ-00W"/>
                         </constraints>
                         <state key="normal" image="UpgradeNow"/>
+                        <connections>
+                            <action selector="upGrade:" destination="4q5-FU-Llh" eventType="touchUpInside" id="10F-yG-Gzh"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

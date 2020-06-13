@@ -31,9 +31,6 @@ class SettingVC: UIViewController {
              self.tableView.contentInset = adjustForTabbarInsets
              self.tableView.scrollIndicatorInsets = adjustForTabbarInsets
         }
-        
-        
-
     }
 
 }

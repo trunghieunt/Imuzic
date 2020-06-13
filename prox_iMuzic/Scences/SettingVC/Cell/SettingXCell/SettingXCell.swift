@@ -58,7 +58,7 @@ extension SettingXCell: UITableViewDelegate{
         
         switch cellItems[indexPath.row] {
         case .reStorePurhase:
-            break
+            topVC.showToastAtBottom(message: "Coming soon")
         case .rateApp:
             SKStoreReviewController.requestReview()
             
@@ -83,9 +83,11 @@ extension SettingXCell: UITableViewDelegate{
                 topVC.present(activityVC, animated: true, completion: nil)
             }
         case .nameApp1:
-            break
+            let url = "https://apps.apple.com/us/app/anime-apps-discover-all-anime/id1502872197"
+            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
         case .aboutApp:
-            break
+            let aboutVC = AboutVC.loadFromNib
+            topVC.navigationController?.pushViewController(aboutVC(), animated: true)
         }
     }
 }

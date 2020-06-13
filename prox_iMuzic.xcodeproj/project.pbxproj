@@ -30,6 +30,8 @@
 		EA4C3DA42448B0AE00C04493 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C3DA32448B0AE00C04493 /* UITextView+extension.swift */; };
 		EA4CA8A22470F9D30095A816 /* YoutubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4CA8A02470F9D30095A816 /* YoutubePlayer.swift */; };
 		EA4CA8A32470F9D30095A816 /* YoutubePlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4CA8A12470F9D30095A816 /* YoutubePlayer.xib */; };
+		EA4CC35E249531E6007BA41A /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4CC35C249531E6007BA41A /* AboutVC.swift */; };
+		EA4CC35F249531E6007BA41A /* AboutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4CC35D249531E6007BA41A /* AboutVC.xib */; };
 		EA59AB822442E97B007AFA4C /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA59AB802442E97B007AFA4C /* PlayerVC.swift */; };
 		EA59AB832442E97B007AFA4C /* PlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA59AB812442E97B007AFA4C /* PlayerVC.xib */; };
 		EA5A3CE7243CCAF6002E94D7 /* BubbleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5A3CE4243CCAF6002E94D7 /* BubbleTabBar.swift */; };
@@ -174,6 +176,8 @@
 		EA4C3DA32448B0AE00C04493 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
 		EA4CA8A02470F9D30095A816 /* YoutubePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayer.swift; sourceTree = "<group>"; };
 		EA4CA8A12470F9D30095A816 /* YoutubePlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubePlayer.xib; sourceTree = "<group>"; };
+		EA4CC35C249531E6007BA41A /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		EA4CC35D249531E6007BA41A /* AboutVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutVC.xib; sourceTree = "<group>"; };
 		EA59AB802442E97B007AFA4C /* PlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
 		EA59AB812442E97B007AFA4C /* PlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerVC.xib; sourceTree = "<group>"; };
 		EA5A3CE4243CCAF6002E94D7 /* BubbleTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTabBar.swift; sourceTree = "<group>"; };
@@ -253,8 +257,8 @@
 		EADC0017243C5E8B005D5502 /* Effra_Trial_Rg1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Effra_Trial_Rg1.ttf; sourceTree = "<group>"; };
 		EADC0022243C6126005D5502 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		EADC0023243C6126005D5502 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
-		EADC0027243C6147005D5502 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
-		EADC0028243C6147005D5502 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
+		EADC0027243C6147005D5502 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingVC.swift; path = "prox_iMuzic/Scences/SettingVC/ViewControllẻ/SettingVC.swift"; sourceTree = SOURCE_ROOT; };
+		EADC0028243C6147005D5502 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingVC.xib; path = "prox_iMuzic/Scences/SettingVC/ViewControllẻ/SettingVC.xib"; sourceTree = SOURCE_ROOT; };
 		EADC002C243C616C005D5502 /* PlayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListVC.swift; sourceTree = "<group>"; };
 		EADC002D243C616C005D5502 /* PlayListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayListVC.xib; sourceTree = "<group>"; };
 		EADC0034243C674F005D5502 /* Tabbar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tabbar.xcassets; sourceTree = "<group>"; };
@@ -388,8 +392,8 @@
 		EA4C3D8624487A0800C04493 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EADC0027243C6147005D5502 /* SettingVC.swift */,
-				EADC0028243C6147005D5502 /* SettingVC.xib */,
+				EA4CC360249531E9007BA41A /* SettingVC */,
+				EA4CC35B249531E6007BA41A /* AboutVC */,
 			);
 			name = ViewController;
 			path = "ViewControllẻ";
@@ -455,6 +459,24 @@
 				EA4C3D9D2448AEE000C04493 /* SendEmailPP */,
 			);
 			path = PP;
+			sourceTree = "<group>";
+		};
+		EA4CC35B249531E6007BA41A /* AboutVC */ = {
+			isa = PBXGroup;
+			children = (
+				EA4CC35C249531E6007BA41A /* AboutVC.swift */,
+				EA4CC35D249531E6007BA41A /* AboutVC.xib */,
+			);
+			path = AboutVC;
+			sourceTree = "<group>";
+		};
+		EA4CC360249531E9007BA41A /* SettingVC */ = {
+			isa = PBXGroup;
+			children = (
+				EADC0027243C6147005D5502 /* SettingVC.swift */,
+				EADC0028243C6147005D5502 /* SettingVC.xib */,
+			);
+			path = SettingVC;
 			sourceTree = "<group>";
 		};
 		EA59AB7F2442E957007AFA4C /* PlayerVC */ = {
@@ -1129,6 +1151,7 @@
 				EADCFFC4243C57B4005D5502 /* Assets.xcassets in Resources */,
 				EAE612B1243F21E6003BC53C /* GendersVC.xib in Resources */,
 				EADC001E243C5E8B005D5502 /* CoreSansGS45Regular.ttf in Resources */,
+				EA4CC35F249531E6007BA41A /* AboutVC.xib in Resources */,
 				EA4C3DA12448AEE000C04493 /* SendEmailPP.xib in Resources */,
 				EA5A3D37243D728A002E94D7 /* Poppins-Thin.ttf in Resources */,
 				EAB74018243DBA65007202A9 /* GenderColl.xib in Resources */,
@@ -1237,6 +1260,7 @@
 				EA621C8E24405806005F467C /* PlayListCell.swift in Sources */,
 				EAB74029243E1F66007202A9 /* CateType.swift in Sources */,
 				EADC0000243C5E60005D5502 /* UIColorExtension.swift in Sources */,
+				EA4CC35E249531E6007BA41A /* AboutVC.swift in Sources */,
 				EA621C972440A782005F467C /* PlayListFSCell.swift in Sources */,
 				EA5A3CFA243CEEB3002E94D7 /* FavoritesVC.swift in Sources */,
 				EA4C3DA42448B0AE00C04493 /* UITextView+extension.swift in Sources */,

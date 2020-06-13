@@ -16,6 +16,8 @@ class MainListVC: UIViewController {
     
     var cateType : CateType?
     var listPlayList : [PlayListModels] = []
+    private var isShowRate = false
+    private var timeShowRate = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +30,38 @@ class MainListVC: UIViewController {
         
     }
     func getListPlaylist() {
+        if timeShowRate % 3 == 0{
+            self.showAskRateApp()
+        }
+        
+        guard let topVC = UIApplication.topViewController() else {
+            return
+        }
+        topVC.showLoadingIndicator()
         ImuzicAPIManager.sharedInstance.getListPlaylist(cateID: self.cateType?.id! ?? "1", limit: "5", offset: "0", success: { [weak self](listPlayList) in
             guard let sSelf = self else {return}
             sSelf.listPlayList = listPlayList
             sSelf.collectionView.reloadData()
+            topVC.hideLoadingIndicator()
         }) { (error) in
             print(error)
-            guard let topVC = UIApplication.topViewController() else {
-                return
-            }
+            topVC.hideLoadingIndicator()
             topVC.showToastAtBottom(message: error)
         }
+    }
+    
+    func showAskRateApp(){
+        timeShowRate += 1
+        if isShowRate {
+            return
+        }
+        isShowRate = true
+        #if !targetEnvironment(simulator)
+            if #available(iOS 10.3, *) {
+                SKStoreReviewController.requestReview()
+            }
+        #endif
+        
     }
     
     func configColl() {
