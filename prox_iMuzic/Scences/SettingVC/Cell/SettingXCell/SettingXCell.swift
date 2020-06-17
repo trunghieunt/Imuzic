@@ -83,8 +83,12 @@ extension SettingXCell: UITableViewDelegate{
                 topVC.present(activityVC, animated: true, completion: nil)
             }
         case .nameApp1:
-            let url = "https://apps.apple.com/us/app/anime-apps-discover-all-anime/id1502872197"
-            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+            if let url = URL.init(string: "BHPAnime://"), UIApplication.shared.canOpenURL(url){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }else{
+                let urlAppStore = "https://apps.apple.com/us/app/anime-apps-discover-all-anime/id1502872197"
+                UIApplication.shared.open(URL(string: urlAppStore)!, options: [:], completionHandler: nil)
+            }
         case .aboutApp:
             let aboutVC = AboutVC.loadFromNib
             topVC.navigationController?.pushViewController(aboutVC(), animated: true)

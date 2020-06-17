@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 import PinterestLayout
 
 class MainListVC: UIViewController {

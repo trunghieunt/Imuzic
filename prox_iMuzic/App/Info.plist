@@ -21,6 +21,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>youtube</string>
+		<string>BHPAnime</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

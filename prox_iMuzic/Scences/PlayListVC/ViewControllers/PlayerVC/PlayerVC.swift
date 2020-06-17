@@ -340,12 +340,12 @@ class PlayerVC: UIViewController {
     @IBAction func actionPlayer(_ sender: Any) {
         if youtubePlay{
             self.outletPlayBtn.setImage(UIImage(named: "ic_pause"), for: .normal)
-            self.outletPlayMini.setImage(UIImage(named: "ic_pause_Black"), for: .normal)
+            self.outletPlayMini.setImage(UIImage(named: "ic_playerMini"), for: .normal)
             AVPlayerViewControllerManager.shared.player?.pause()
             self.youtubePlay = false
         }else{
             self.outletPlayBtn.setImage(UIImage(named: "ic_play"), for: .normal)
-            self.outletPlayMini.setImage(UIImage(named: "ic_playerMini"), for: .normal)
+            self.outletPlayMini.setImage(UIImage(named: "ic_pause_Black"), for: .normal)
             AVPlayerViewControllerManager.shared.player?.play()
             self.youtubePlay = true
         }
