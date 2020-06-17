@@ -226,7 +226,11 @@ class PlayerVC: UIViewController {
     func getStreamingLink(_ link: String, _ action:ActionType){
         self.showLoadingIndicator()
         
-        XCDYouTubeClient.default().getVideoWithIdentifier(link) {(video, error ) in
+        
+        XCDYouTubeClient.default().getVideoWithIdentifier(link) { [weak self] (video, error ) in
+            
+            guard let `self` = self else {return}
+            
             self.hideLoadingIndicator()
             
             if let er = error {

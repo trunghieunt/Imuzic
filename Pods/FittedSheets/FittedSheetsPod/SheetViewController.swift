@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SheetViewController: UIViewController {
+open class SheetViewController: UIViewController {
     // MARK: - Public Properties
     public private(set) var childViewController: UIViewController!
     
@@ -31,12 +31,11 @@ public class SheetViewController: UIViewController {
     /// If true, sheet may be dismissed by panning down
     public var dismissOnPan: Bool = true
     
+    /// If false, the pan gesture to dismiss the sheet will not be recognized when it conflicts with a UIControl
+    public var shouldRecognizePanGestureWithUIControls: Bool = false
+    
     /// If true, sheet's dismiss view will be generated, otherwise sheet remains fixed and will need to be dismissed programatically
-    public var dismissable: Bool = true {
-        didSet {
-            guard isViewLoaded else { return }
-        }
-    }
+    public var dismissable: Bool = true
     
     public var extendBackgroundBehindHandle: Bool = false {
         didSet {
@@ -131,12 +130,12 @@ public class SheetViewController: UIViewController {
         
         if(dismissable){
             self.setUpDismissView()
-            
-            let panGestureRecognizer = InitialTouchPanGestureRecognizer(target: self, action: #selector(panned(_:)))
-            self.view.addGestureRecognizer(panGestureRecognizer)
-            panGestureRecognizer.delegate = self
-            self.panGestureRecognizer = panGestureRecognizer
         }
+
+        let panGestureRecognizer = InitialTouchPanGestureRecognizer(target: self, action: #selector(panned(_:)))
+        self.view.addGestureRecognizer(panGestureRecognizer)
+        panGestureRecognizer.delegate = self
+        self.panGestureRecognizer = panGestureRecognizer
       
         self.setUpPullBarView()
         self.setUpChildViewController()
@@ -299,8 +298,8 @@ public class SheetViewController: UIViewController {
         handleView.backgroundColor = self.handleColor
         
         pullBarView.isAccessibilityElement = true
-        pullBarView.accessibilityLabel = "Pull bar"
-        pullBarView.accessibilityHint = "Tap on this bar to dismiss the modal"
+        pullBarView.accessibilityLabel = "Overlay controller"
+        pullBarView.accessibilityHint = "Double tap to dismiss card overlay"
         pullBarView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissTapped)))
     }
     
@@ -362,7 +361,7 @@ public class SheetViewController: UIViewController {
             
             let animationDuration = TimeInterval(abs(velocity*0.0002) + 0.2)
             
-            guard finalHeight >= (minHeight / 2) || !dismissOnPan else {
+            guard finalHeight >= (minHeight / 2) || !dismissOnPan || !dismissable else {
                 // Dismiss
                 UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseOut], animations: { [weak self] in
                     self?.containerView.transform = CGAffineTransform(translationX: 0, y: self?.containerView.frame.height ?? 0)
@@ -410,7 +409,7 @@ public class SheetViewController: UIViewController {
                 self.containerHeightConstraint.constant = newHeight
             }
             
-            if offset > 0 && dismissOnPan {
+            if offset > 0 {
                 self.containerView.transform = CGAffineTransform(translationX: 0, y: offset)
             } else {
                 self.containerView.transform = CGAffineTransform.identity
@@ -470,9 +469,13 @@ public class SheetViewController: UIViewController {
 
 extension SheetViewController: UIGestureRecognizerDelegate {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard let view = touch.view else { return true }
-        // Allowing gesture recognition on a button seems to prevent it's events from firing properly sometimes
-        return !(view is UIControl)
+        // Allowing gesture recognition on a UIControl seems to prevent its events from firing properly sometimes
+        if !shouldRecognizePanGestureWithUIControls {
+            if let view = touch.view {
+                return !(view is UIControl)
+            }
+        }
+        return true
     }
     
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -487,8 +490,8 @@ extension SheetViewController: UIGestureRecognizerDelegate {
             }
             return true
         }
-        
-        guard abs(velocity.y) > abs(velocity.x), childScrollView.contentOffset.y == 0 else { return false }
+        let topInset = childScrollView.contentInset.top
+        guard abs(velocity.y) > abs(velocity.x), childScrollView.contentOffset.y == -topInset else { return false }
         
         if velocity.y < 0 {
             let containerHeight = height(for: self.containerSize)

@@ -14,7 +14,7 @@ import SwiftyJSON
 struct ImuzicAPIManager {
     static let sharedInstance = ImuzicAPIManager()
     //    let myNetworkLoggerPlugin =
-    let provider = MoyaProvider<ImuzicServices>(plugins: [NetworkLoggerPlugin(verbose: false)])
+    let provider = MoyaProvider<ImuzicServices>()
     
     
     func getAllCate(success :  @escaping ([CateType]) -> Void,failed :  @escaping (String) -> Void) {

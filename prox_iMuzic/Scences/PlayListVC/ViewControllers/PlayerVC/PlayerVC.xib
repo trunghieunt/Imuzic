@@ -233,7 +233,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Iwe-Cn-MQe" secondAttribute="height" id="rEB-aW-xox"/>
                             </constraints>
-                            <state key="normal" image="ic_playerMini"/>
+                            <state key="normal" image="ic_pause_Black"/>
                             <connections>
                                 <action selector="actionPlayer:" destination="-1" eventType="touchUpInside" id="ufs-91-pnp"/>
                             </connections>
@@ -289,8 +289,8 @@
         <image name="down-arrow" width="24" height="24"/>
         <image name="ic_like_white" width="24" height="22"/>
         <image name="ic_next" width="28" height="24"/>
+        <image name="ic_pause_Black" width="24" height="24"/>
         <image name="ic_play" width="65" height="64"/>
-        <image name="ic_playerMini" width="24" height="24"/>
         <image name="ic_prev" width="28" height="24"/>
         <image name="ic_repeat" width="28" height="24"/>
         <image name="ic_shufe" width="29" height="24"/>

@@ -28,7 +28,7 @@ enum SettingEnum {
         case .shareWithFriend:
             return "Share with friend"
         case .nameApp1:
-            return "Name app1"
+            return "KizsAnime"
         case .aboutApp:
             return "About app"
         case .reStorePurhase:

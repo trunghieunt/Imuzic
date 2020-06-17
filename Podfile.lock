@@ -1,24 +1,24 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.2.1)
   - BmoViewPager (5.0.0)
-  - DynamicBlurView (4.0.0)
+  - DynamicBlurView (4.1.0)
   - EmptyDataSet-Swift (5.0.0)
-  - FittedSheets (1.4.5)
+  - FittedSheets (1.4.6)
   - FSPagerView (0.8.3)
-  - Kingfisher (4.10.1)
-  - Moya (13.0.1):
-    - Moya/Core (= 13.0.1)
-  - Moya/Core (13.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
+  - Kingfisher (5.14.0):
+    - Kingfisher/Core (= 5.14.0)
+  - Kingfisher/Core (5.14.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - PinterestLayout (1.0.3)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - PullToRefreshKit (0.8.8)
-  - Result (4.1.0)
   - SwiftyJSON (5.0.0)
   - Toast-Swift (5.0.1)
-  - XCDYouTubeKit (2.12.0)
+  - XCDYouTubeKit (2.14.0)
 
 DEPENDENCIES:
   - BmoViewPager
@@ -47,28 +47,26 @@ SPEC REPOS:
     - PinterestLayout
     - PopupDialog
     - PullToRefreshKit
-    - Result
     - SwiftyJSON
     - Toast-Swift
     - XCDYouTubeKit
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   BmoViewPager: 4bf4004de0a9ff51821cdadbb070ab707df3ac64
-  DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
-  FittedSheets: 7f754c9f6fb4ea330cbc57c652b594255f2a6819
+  FittedSheets: 7f37fee2567d15dcde391f31eccbffb660ddebf0
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Kingfisher: 7b64389a43139c903ec434788344c288217c792d
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   PinterestLayout: f1c7ec0254ffa842d69f1b43e4436c8ded4359b9
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  XCDYouTubeKit: cdad9e696f991aac2739c5b25586c81f1301ba30
+  XCDYouTubeKit: 04a2f89dca6c5c53d1786701a0e98dcb484be7a8
 
 PODFILE CHECKSUM: 8064840bc53e2653a379394dcb5642fb8a383e80
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
