@@ -22,6 +22,7 @@ class PlayListVC: UIViewController {
     
     @IBOutlet weak var outletAdd: UIButton!
     
+    @IBOutlet weak var constantPager: NSLayoutConstraint!
     
     
     var listPlayList : [PlayListLocalModels] = []
@@ -85,6 +86,8 @@ class PlayListVC: UIViewController {
         PagerView.isInfinite = true
         
         PagerView.transformer = FSPagerViewTransformer(type: .zoomOut)
+        
+        self.constantPager.constant = 467/667*UIScreen.main.bounds.height
         
     }
     

@@ -32,8 +32,10 @@ class SongItemsCell: UITableViewCell {
     }
 
     func configUI() {
-        self.viewCell.roundCorners([.bottomLeft,.topLeft], radius: 40)
+//        self.viewCell.roundCorners([.bottomLeft,.topLeft], radius: 40)
+        self.viewCell.layer.cornerRadius = 40
         self.img.roundCorners(.allCorners, radius: 40)
+        self.layoutIfNeeded()
     }
     func configCell(listSong: SongModel) {
         self.NameSing.text = listSong.artist

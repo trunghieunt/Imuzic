@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -58,54 +58,54 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hanava" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgH-Qs-Owm">
-                            <rect key="frame" x="52" y="31.666666666666668" width="347" height="36.666666666666657"/>
+                            <rect key="frame" x="52" y="32" width="347" height="36.5"/>
                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-Wc-uC9">
-                            <rect key="frame" x="0.0" y="108.33333333333331" width="414" height="283"/>
+                            <rect key="frame" x="0.0" y="108.5" width="414" height="283"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="8dw-Wc-uC9" secondAttribute="height" multiplier="1170:800" id="nBw-4i-Utl"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SS5-de-lgq">
-                            <rect key="frame" x="11" y="406.33333333333331" width="392" height="60"/>
+                            <rect key="frame" x="11" y="406.5" width="392" height="60"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9rE-bp-wMA">
                                     <rect key="frame" x="0.0" y="0.0" width="392" height="60"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zN0-9P-9cN">
-                                            <rect key="frame" x="0.0" y="0.0" width="78.333333333333329" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="78.5" height="60"/>
                                             <state key="normal" image="ic_like_white"/>
                                             <connections>
                                                 <action selector="actionAddFavorite:" destination="-1" eventType="touchUpInside" id="ckB-vT-yur"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQf-6p-5y0">
-                                            <rect key="frame" x="78.333333333333343" y="0.0" width="78.333333333333343" height="60"/>
+                                            <rect key="frame" x="78.5" y="0.0" width="78.5" height="60"/>
                                             <state key="normal" image="playlist_white"/>
                                             <connections>
                                                 <action selector="actionAddList:" destination="-1" eventType="touchUpInside" id="Koc-D2-xh6"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hic-f7-FFt">
-                                            <rect key="frame" x="156.66666666666666" y="0.0" width="78.666666666666657" height="60"/>
+                                            <rect key="frame" x="157" y="0.0" width="78" height="60"/>
                                             <state key="normal" image="share"/>
                                             <connections>
                                                 <action selector="actionShare:" destination="-1" eventType="touchUpInside" id="fuq-CJ-HrD"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24W-Rb-wdJ">
-                                            <rect key="frame" x="235.33333333333334" y="0.0" width="78.333333333333343" height="60"/>
+                                            <rect key="frame" x="235" y="0.0" width="78.5" height="60"/>
                                             <state key="normal" image="alarm-clock"/>
                                             <connections>
                                                 <action selector="actionAlarmClock:" destination="-1" eventType="touchUpInside" id="Dp5-wY-Uwd"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPm-ff-imK">
-                                            <rect key="frame" x="313.66666666666669" y="0.0" width="78.333333333333314" height="60"/>
+                                            <rect key="frame" x="313.5" y="0.0" width="78.5" height="60"/>
                                             <state key="normal" image="speed"/>
                                             <connections>
                                                 <action selector="actionSpeed:" destination="-1" eventType="touchUpInside" id="eYq-xP-Xwl"/>
@@ -124,7 +124,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calima Cabello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whK-ik-yCS">
-                            <rect key="frame" x="52" y="68.333333333333329" width="116" height="21"/>
+                            <rect key="frame" x="52" y="68.5" width="116" height="21"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -136,35 +136,35 @@
                                     <rect key="frame" x="0.0" y="35" width="414" height="80"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlg-zz-FSC">
-                                            <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="83" height="80"/>
                                             <state key="normal" image="ic_repeat"/>
                                             <connections>
                                                 <action selector="actionRepeat:" destination="-1" eventType="touchUpInside" id="ws4-Tu-cnS"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2i-TO-sta">
-                                            <rect key="frame" x="82.666666666666671" y="0.0" width="83.000000000000014" height="80"/>
+                                            <rect key="frame" x="83" y="0.0" width="82.5" height="80"/>
                                             <state key="normal" image="ic_prev"/>
                                             <connections>
                                                 <action selector="actionPrev:" destination="-1" eventType="touchUpInside" id="4YB-Ml-4p7"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0H-Xl-Noq">
-                                            <rect key="frame" x="165.66666666666666" y="0.0" width="82.666666666666657" height="80"/>
+                                            <rect key="frame" x="165.5" y="0.0" width="83" height="80"/>
                                             <state key="normal" image="ic_play"/>
                                             <connections>
                                                 <action selector="actionPlayer:" destination="-1" eventType="touchUpInside" id="83v-RX-ukV"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gth-5v-dfh">
-                                            <rect key="frame" x="248.33333333333337" y="0.0" width="83" height="80"/>
+                                            <rect key="frame" x="248.5" y="0.0" width="82.5" height="80"/>
                                             <state key="normal" image="ic_next"/>
                                             <connections>
                                                 <action selector="actionNext:" destination="-1" eventType="touchUpInside" id="Bah-uy-ld9"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2e7-7G-WXE">
-                                            <rect key="frame" x="331.33333333333331" y="0.0" width="82.666666666666686" height="80"/>
+                                            <rect key="frame" x="331" y="0.0" width="83" height="80"/>
                                             <state key="normal" image="ic_shufe"/>
                                             <connections>
                                                 <action selector="actionShufe:" destination="-1" eventType="touchUpInside" id="s9a-RJ-V4h"/>
@@ -217,13 +217,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hanava" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxG-27-2jh">
-                            <rect key="frame" x="64" y="5" width="161" height="18.333333333333332"/>
+                            <rect key="frame" x="64" y="5" width="161" height="18.5"/>
                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
                             <color key="textColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calima Cabello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUe-dX-MPu">
-                            <rect key="frame" x="64" y="23.333333333333332" width="161" height="13.999999999999996"/>
+                            <rect key="frame" x="64" y="23.5" width="161" height="14"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                             <color key="textColor" red="0.039361447100000002" green="0.041448690000000003" blue="0.094123251739999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>

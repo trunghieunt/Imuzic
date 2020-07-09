@@ -10,33 +10,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="191" id="4q5-FU-Llh" customClass="BannerSettingVC" customModule="prox_iMuzic" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="374" height="191"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="4q5-FU-Llh" customClass="BannerSettingVC" customModule="prox_iMuzic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4q5-FU-Llh" id="EZr-0N-CMm">
-                <rect key="frame" x="0.0" y="0.0" width="374" height="191"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_upgrade" translatesAutoresizingMaskIntoConstraints="NO" id="I7K-WV-ya5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1125" height="540"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-80-hCb">
-                        <rect key="frame" x="0.0" y="116" width="175" height="45"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="45" id="XJi-48-OnS"/>
-                            <constraint firstAttribute="width" constant="175" id="sPO-vQ-00W"/>
-                        </constraints>
-                        <state key="normal" image="UpgradeNow"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <connections>
                             <action selector="upGrade:" destination="4q5-FU-Llh" eventType="touchUpInside" id="10F-yG-Gzh"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="p5K-80-hCb" firstAttribute="top" secondItem="EZr-0N-CMm" secondAttribute="top" constant="116" id="9jn-Oy-BgZ"/>
+                    <constraint firstAttribute="trailing" secondItem="p5K-80-hCb" secondAttribute="trailing" id="2Hv-dA-LFA"/>
+                    <constraint firstItem="p5K-80-hCb" firstAttribute="top" secondItem="EZr-0N-CMm" secondAttribute="top" id="9jn-Oy-BgZ"/>
                     <constraint firstItem="p5K-80-hCb" firstAttribute="leading" secondItem="EZr-0N-CMm" secondAttribute="leading" id="L4D-fH-nXG"/>
                     <constraint firstAttribute="bottom" secondItem="I7K-WV-ya5" secondAttribute="bottom" constant="11" id="Ofe-Xd-aru"/>
                     <constraint firstItem="I7K-WV-ya5" firstAttribute="leading" secondItem="EZr-0N-CMm" secondAttribute="leading" id="Qar-cZ-1e2"/>
+                    <constraint firstAttribute="bottom" secondItem="p5K-80-hCb" secondAttribute="bottom" id="YY0-hw-5gk"/>
                     <constraint firstItem="I7K-WV-ya5" firstAttribute="top" secondItem="EZr-0N-CMm" secondAttribute="top" id="nLK-ne-jnG"/>
                     <constraint firstAttribute="trailing" secondItem="I7K-WV-ya5" secondAttribute="trailing" id="pOW-gH-x3x"/>
                     <constraint firstItem="I7K-WV-ya5" firstAttribute="width" secondItem="I7K-WV-ya5" secondAttribute="height" multiplier="25:12" id="yfP-Rj-Cs6"/>
@@ -44,11 +41,10 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="qmz-jZ-YlZ"/>
-            <point key="canvasLocation" x="-14.492753623188406" y="58.59375"/>
+            <point key="canvasLocation" x="-13.768115942028986" y="54.910714285714285"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="UpgradeNow" width="140" height="36"/>
-        <image name="image_upgrade" width="375" height="180"/>
+        <image name="image_upgrade" width="1125" height="540"/>
     </resources>
 </document>

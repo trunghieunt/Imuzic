@@ -29,7 +29,6 @@
                         <rect key="frame" x="10" y="240" width="308" height="128"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="308" id="Oj7-cI-h9F"/>
                             <constraint firstAttribute="height" constant="128" id="npc-cX-24f"/>
                         </constraints>
                     </view>
@@ -37,17 +36,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="328" height="351"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="328" id="K6J-r1-7I3"/>
-                            <constraint firstAttribute="height" constant="351" id="RuB-LN-m7f"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAl-ht-uJi">
-                        <rect key="frame" x="130.5" y="434.5" width="67.5" height="22.5"/>
+                        <rect key="frame" x="130" y="429" width="68" height="19"/>
                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 100 USA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huk-QG-2PQ">
-                        <rect key="frame" x="96.5" y="395" width="135.5" height="32.5"/>
+                        <rect key="frame" x="96.5" y="395" width="135.5" height="27"/>
                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="23"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -77,6 +75,8 @@
                 <constraint firstItem="Huk-QG-2PQ" firstAttribute="top" secondItem="0Sg-iL-xin" secondAttribute="bottom" constant="27" id="eqp-OB-zmq"/>
                 <constraint firstItem="NAl-ht-uJi" firstAttribute="top" secondItem="Huk-QG-2PQ" secondAttribute="bottom" constant="7" id="jJd-4s-WEa"/>
                 <constraint firstItem="NAl-ht-uJi" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="n4Z-Mm-DBU"/>
+                <constraint firstItem="4qZ-cO-gCU" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.735849" id="rey-WJ-t33"/>
+                <constraint firstItem="0Sg-iL-xin" firstAttribute="width" secondItem="4qZ-cO-gCU" secondAttribute="width" multiplier="0.939024" id="vGz-v5-Lr6"/>
                 <constraint firstItem="4qZ-cO-gCU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="zgC-HH-e15"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>

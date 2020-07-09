@@ -15,6 +15,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayListVC" customModule="prox_iMuzic" customModuleProvider="target">
             <connections>
                 <outlet property="PagerView" destination="fMH-Dx-51I" id="vA9-MO-q02"/>
+                <outlet property="constantPager" destination="yOc-2e-lyv" id="iM6-tm-M6L"/>
                 <outlet property="outletAdd" destination="TaM-xt-iaj" id="whI-xB-YEt"/>
                 <outlet property="segmentView" destination="30T-9p-xtb" id="3qW-UQ-WGG"/>
                 <outlet property="tableView" destination="Hbx-dZ-Srt" id="sCL-pK-cxe"/>
@@ -51,7 +52,6 @@
                     <rect key="frame" x="23.5" y="110" width="328" height="467"/>
                     <color key="backgroundColor" red="0.039215686270000001" green="0.043137254899999998" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="328" id="5jF-uy-7kU"/>
                         <constraint firstAttribute="height" constant="467" id="yOc-2e-lyv"/>
                     </constraints>
                 </view>
@@ -78,6 +78,7 @@
                 <constraint firstItem="ogj-mS-ezp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="4MF-YV-1ag"/>
                 <constraint firstItem="fMH-Dx-51I" firstAttribute="centerX" secondItem="Hbx-dZ-Srt" secondAttribute="centerX" id="7gp-wM-fww"/>
                 <constraint firstItem="Hbx-dZ-Srt" firstAttribute="top" secondItem="TaM-xt-iaj" secondAttribute="bottom" constant="8.5" id="DZ3-B5-5Jb"/>
+                <constraint firstAttribute="trailing" secondItem="fMH-Dx-51I" secondAttribute="trailing" constant="23.5" id="IyE-JS-5bJ"/>
                 <constraint firstItem="fMH-Dx-51I" firstAttribute="top" secondItem="TaM-xt-iaj" secondAttribute="bottom" constant="30" id="LsD-km-Fbt"/>
                 <constraint firstItem="TaM-xt-iaj" firstAttribute="leading" secondItem="30T-9p-xtb" secondAttribute="trailing" constant="5" id="apz-zZ-svF"/>
                 <constraint firstAttribute="bottom" secondItem="Hbx-dZ-Srt" secondAttribute="bottom" constant="-1" id="beb-7K-x4T"/>

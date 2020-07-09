@@ -265,7 +265,7 @@
 		EADC0044243CA60D005D5502 /* DarkNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkNavigationController.swift; sourceTree = "<group>"; };
 		EADC0045243CA60D005D5502 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EADC0046243CA60D005D5502 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		EADCFFB7243C57AF005D5502 /* prox_iMuzic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prox_iMuzic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EADCFFB7243C57AF005D5502 /* iPlay Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iPlay Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADCFFBA243C57AF005D5502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EADCFFC3243C57B4005D5502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EADCFFC6243C57B4005D5502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -899,7 +899,7 @@
 		EADCFFB8243C57AF005D5502 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EADCFFB7243C57AF005D5502 /* prox_iMuzic.app */,
+				EADCFFB7243C57AF005D5502 /* iPlay Music.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1067,7 +1067,7 @@
 			);
 			name = prox_iMuzic;
 			productName = prox_iMuzic;
-			productReference = EADCFFB7243C57AF005D5502 /* prox_iMuzic.app */;
+			productReference = EADCFFB7243C57AF005D5502 /* iPlay Music.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1438,7 +1438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 374Z27ML26;
 				INFOPLIST_FILE = "$(SRCROOT)/prox_iMuzic/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1447,10 +1447,10 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.prox.music;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "iPlay Music";
 				PROVISIONING_PROFILE_SPECIFIER = "Music Store";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1461,7 +1461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 374Z27ML26;
 				INFOPLIST_FILE = "$(SRCROOT)/prox_iMuzic/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1470,10 +1470,10 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.prox.music;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "iPlay Music";
 				PROVISIONING_PROFILE_SPECIFIER = "Music Store";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
